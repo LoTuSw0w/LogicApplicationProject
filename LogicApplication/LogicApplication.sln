@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28809.33
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicApplication", "LogicApplication\LogicApplication.csproj", "{AD88AD44-8E2E-41F8-BBFE-5DD8076805C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicApplication", "LogicApplication.csproj", "{AD88AD44-8E2E-41F8-BBFE-5DD8076805C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {67DE8D5A-8C23-4C91-AF0A-A30002A5E74F}
+		SolutionGuid = {17B18182-6B2E-48B3-8882-14583B2E3263}
 	EndGlobalSection
 EndGlobal
