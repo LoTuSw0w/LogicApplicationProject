@@ -21,5 +21,10 @@ namespace LogicApplication
         {
             txtOutput.Text = LogicNotation.Conversion(txtInput.Text);
         }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            //GenerateGraph.GraphvizTextGenerator();
+        }
     }
 }

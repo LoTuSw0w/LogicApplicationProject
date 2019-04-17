@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace LogicApplication
 {
@@ -47,6 +48,8 @@ namespace LogicApplication
             {
                 toBeProcessed = toBeProcessed.Replace(c, string.Empty);
             }
+            //Get the prefix notation to generate a binary tree later
+            GenerateGraph.GetPrefixNotation(toBeProcessed);
 
             //Reverse the string
             char[] reverseArr = toBeProcessed.ToCharArray();
@@ -90,5 +93,7 @@ namespace LogicApplication
             toReturnFinal = new string(finalArr);
             return $"{toReturnFinal}";
         }
+
+
     }
 }
