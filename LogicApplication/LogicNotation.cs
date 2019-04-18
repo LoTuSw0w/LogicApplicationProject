@@ -29,8 +29,8 @@ namespace LogicApplication
             {
                 case '&': return "^";
                 case '|': return "v";
-                case '>': return "=>";
-                case '=': return "<=>";
+                case '>': return "→";
+                case '=': return "↔";
             }
             return "";
         }

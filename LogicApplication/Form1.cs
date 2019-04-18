@@ -24,7 +24,14 @@ namespace LogicApplication
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            //GenerateGraph.GraphvizTextGenerator();
+            if(txtOutput.Text == "")
+            {
+                MessageBox.Show("Please generate the statement first!");
+            }
+            else
+            {
+                GenerateGraph.GraphvizTextGenerator();
+            }
         }
     }
 }
