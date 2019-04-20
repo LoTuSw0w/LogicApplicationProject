@@ -51,7 +51,7 @@ namespace LogicApplication
             //Get the prefix notation to generate a binary tree later
             GenerateGraph.GetPrefixNotation(toBeProcessed);
 
-            //Reverse the string
+            //Reverse the string to postfix
             char[] reverseArr = toBeProcessed.ToCharArray();
             Array.Reverse(reverseArr);
             toBeProcessed = new string(reverseArr);
