@@ -11,7 +11,7 @@ graph logic {
   node5 [label = "b"]
   node3 -- node6
   node3 -- node7
-  node3 [label = "&"]
+  node3 [label = "|"]
   node6 [label = "a"]
   node7 [label = "c"]
 

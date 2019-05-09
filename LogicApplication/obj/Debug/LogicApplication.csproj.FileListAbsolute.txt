@@ -18,3 +18,13 @@ D:\gitKraken\LogicApplicationProject\LogicApplication\obj\Debug\LogicApplication
 D:\gitKraken\LogicApplicationProject\LogicApplication\bin\Debug\LogicApplication.exe.config
 D:\gitKraken\LogicApplicationProject\LogicApplication\bin\Debug\LogicApplication.exe
 D:\gitKraken\LogicApplicationProject\LogicApplication\bin\Debug\LogicApplication.pdb
+D:\Git\LogicApplicationProject\LogicApplication\bin\Debug\LogicApplication.exe.config
+D:\Git\LogicApplicationProject\LogicApplication\bin\Debug\LogicApplication.exe
+D:\Git\LogicApplicationProject\LogicApplication\bin\Debug\LogicApplication.pdb
+D:\Git\LogicApplicationProject\LogicApplication\obj\Debug\LogicApplication.csprojAssemblyReference.cache
+D:\Git\LogicApplicationProject\LogicApplication\obj\Debug\LogicApplication.Form1.resources
+D:\Git\LogicApplicationProject\LogicApplication\obj\Debug\LogicApplication.Properties.Resources.resources
+D:\Git\LogicApplicationProject\LogicApplication\obj\Debug\LogicApplication.csproj.GenerateResource.cache
+D:\Git\LogicApplicationProject\LogicApplication\obj\Debug\LogicApplication.csproj.CoreCompileInputs.cache
+D:\Git\LogicApplicationProject\LogicApplication\obj\Debug\LogicApplication.exe
+D:\Git\LogicApplicationProject\LogicApplication\obj\Debug\LogicApplication.pdb
