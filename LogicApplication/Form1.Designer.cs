@@ -36,27 +36,31 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.binaryTree = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.binaryTree)).BeginInit();
             this.SuspendLayout();
             // 
             // txtInput
             // 
             this.txtInput.Font = new System.Drawing.Font("DejaVu Sans Mono", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInput.Location = new System.Drawing.Point(12, 48);
+            this.txtInput.Location = new System.Drawing.Point(12, 12);
             this.txtInput.Name = "txtInput";
-            this.txtInput.Size = new System.Drawing.Size(453, 31);
+            this.txtInput.Size = new System.Drawing.Size(728, 31);
             this.txtInput.TabIndex = 0;
             // 
             // txtOutput
             // 
             this.txtOutput.Font = new System.Drawing.Font("DejaVu Sans Mono", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOutput.Location = new System.Drawing.Point(12, 106);
+            this.txtOutput.Location = new System.Drawing.Point(12, 49);
             this.txtOutput.Name = "txtOutput";
-            this.txtOutput.Size = new System.Drawing.Size(453, 31);
+            this.txtOutput.Size = new System.Drawing.Size(728, 31);
             this.txtOutput.TabIndex = 1;
             // 
             // btnConvert
             // 
-            this.btnConvert.Location = new System.Drawing.Point(82, 219);
+            this.btnConvert.Location = new System.Drawing.Point(802, 18);
             this.btnConvert.Name = "btnConvert";
             this.btnConvert.Size = new System.Drawing.Size(75, 23);
             this.btnConvert.TabIndex = 2;
@@ -66,7 +70,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(237, 219);
+            this.button1.Location = new System.Drawing.Point(883, 18);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 23);
             this.button1.TabIndex = 3;
@@ -76,18 +80,18 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 273);
+            this.button2.Location = new System.Drawing.Point(791, 47);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(127, 23);
             this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
+            this.button2.Text = "Truth table";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("DejaVu Sans Mono", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(12, 302);
+            this.textBox1.Location = new System.Drawing.Point(614, 86);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(453, 31);
             this.textBox1.TabIndex = 5;
@@ -95,24 +99,55 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("DejaVu Sans Mono", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(12, 339);
+            this.textBox2.Location = new System.Drawing.Point(614, 123);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(453, 31);
             this.textBox2.TabIndex = 6;
             // 
             // listBox1
             // 
+            this.listBox1.Font = new System.Drawing.Font("DejaVu Sans Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(486, 42);
+            this.listBox1.ItemHeight = 14;
+            this.listBox1.Location = new System.Drawing.Point(1073, 173);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(254, 329);
+            this.listBox1.Size = new System.Drawing.Size(290, 396);
             this.listBox1.TabIndex = 7;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("DejaVu Sans Mono", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(715, 160);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(352, 31);
+            this.textBox3.TabIndex = 8;
+            // 
+            // listBox2
+            // 
+            this.listBox2.Font = new System.Drawing.Font("DejaVu Sans Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 14;
+            this.listBox2.Location = new System.Drawing.Point(1073, 12);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(290, 158);
+            this.listBox2.TabIndex = 9;
+            // 
+            // binaryTree
+            // 
+            this.binaryTree.Location = new System.Drawing.Point(21, 218);
+            this.binaryTree.Name = "binaryTree";
+            this.binaryTree.Size = new System.Drawing.Size(972, 438);
+            this.binaryTree.TabIndex = 10;
+            this.binaryTree.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 471);
+            this.ClientSize = new System.Drawing.Size(1375, 686);
+            this.Controls.Add(this.binaryTree);
+            this.Controls.Add(this.listBox2);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -123,6 +158,7 @@
             this.Controls.Add(this.txtInput);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.binaryTree)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,6 +174,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.PictureBox binaryTree;
     }
 }
 

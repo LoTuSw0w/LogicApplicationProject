@@ -48,26 +48,39 @@ namespace LogicApplication
 
             //Add first node to the list
             allNodees.Add(1);
+            double SourceNode = 3;
 
             //Process each character in the string
             for (int i = 0; i < ToBeProcessed.Length; i++)
             {
+                
                 if (CheckOperator(ToBeProcessed[i]))
                 {
                     //Check if this node has any parent (this is the node on the right)
-                    if (allNodees.Contains((lastNode - 1) / 2))
+                    double parentNode = (lastNode - 1) / 2;
+                    if (allNodees.Contains(parentNode) && parentNode != 1)
                     {
-                        currentNode = ((lastNode - 1) / 2) + 1;
-                        allNodees.Add(currentNode);
+                        if (((lastNode - 1) / 2) % 2 != 0)
+                        {
+                            currentNode = SourceNode;
+                        }
+                        else
+                        {
+                            currentNode = ((lastNode - 1) / 2) + 1;
+                        }
                     }
                     sw.WriteLine($"  node{currentNode} -- node{currentNode * 2}");
                     sw.WriteLine($"  node{currentNode} -- node{currentNode * 2 + 1}");
                     sw.WriteLine($"  node{currentNode} [label = \"{ToBeProcessed[i]}\"]");
+                    //Add new node to the list
+                    allNodees.Add(currentNode);
+                    allNodees.Add(currentNode * 2);
+                    allNodees.Add(currentNode * 2 + 1);
+
+                    //set lastnode to currentnode
                     lastNode = currentNode;
                     //Left node from the current node equals to the value of the current node doubled
                     currentNode = currentNode * 2;
-                    //Add new node to the list
-                    allNodees.Add(currentNode);
                 }
                 else if (ToBeProcessed[i] == '~')
                 {
@@ -75,14 +88,13 @@ namespace LogicApplication
                 }
                 else
                 {
-                    
                     //double checkNumber = (lastNode - 1) / 2;
                     //if (allNodees.Contains(checkNumber)) //if this node has a parent on the left, then create a node on the right of that parent
                     //{
                     //    currentNode = checkNumber + 1;
                     //    allNodees.Add(currentNode);
                     //}
-                    if(ToBeProcessed[i - 1] == '~')
+                    if (ToBeProcessed[i - 1] == '~')
                     {
                         sw.WriteLine($"  node{currentNode} [label = \"~{ToBeProcessed[i]}\"]");
                     }
@@ -90,11 +102,20 @@ namespace LogicApplication
                     {
                         sw.WriteLine($"  node{currentNode} [label = \"{ToBeProcessed[i]}\"]");
                     }
+
+                    //set the last node equal to the current node
                     lastNode = currentNode;
-                    if((currentNode % 2) == 0)
+
+                    //go to the right node
+                    if ((currentNode % 2) == 0)
                     {
                         currentNode = currentNode + 1;
-                        allNodees.Add(currentNode);
+                    }
+
+                    //if this node is the highest node, then go back to the node to the right of its parent
+                    if(lastNode == allNodees.Max())
+                    {
+                        currentNode = ((currentNode - 1) / 2) + 1;
                     }
                 }
             }

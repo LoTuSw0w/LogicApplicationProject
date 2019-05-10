@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace LogicApplication
@@ -22,7 +23,32 @@ namespace LogicApplication
             sortedString = "";
         }
 
-        //This function is to get the prefix notation of the string
+        //This function will be used to store all logical symbols in a proposition, used to serve assignment 3.
+        //With this function, the program will be able to tell if the resulting truth table can be simplified or not
+        //public static bool TableSimplifiableOrNot(string s)
+        //{
+        //    string tobeProcessed = s;
+        //    //step 1: it is required that the logical notation contains only '&' or '|' symbol, otherwise the table cannot be simplified
+        //    string allLogicPropositions = GetLogicProposition(s);
+        //    foreach (char c in tobeProcessed)
+        //    {
+        //        if (allLogicPropositions.Contains(c))
+        //        {
+        //            tobeProcessed.Remove(c);
+        //        }
+        //    }
+        //    //check if the logical notation contains only '&' or '|' symbol or not
+        //    foreach (char c in tobeProcessed)
+        //    {
+        //        if (c == '>' || c == '')
+        //    }
+
+
+        //    //step 2: check if all symbols in the proposition are the same or not. If not, then return false
+
+        //}
+
+        //This function is to get the postfix notation of the string
         public static string GetPostfix(string s)
         {
             string toBeProcessed = s;
@@ -65,9 +91,8 @@ namespace LogicApplication
             var charToCut = new string[] { "(", ")", ",", "&", "|", ">", "=", "~" };
             foreach (var c in charToCut)
             {
-                toBeProcessed = toBeProcessed.Replace(c, string.Empty);
+               toBeProcessed = toBeProcessed.Replace(c, string.Empty);
             }
-
             return toBeProcessed;
         }
 
