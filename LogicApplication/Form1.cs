@@ -19,10 +19,28 @@ namespace LogicApplication
             InitializeComponent();
         }
 
+        private void ClearValue()
+        {
+            txtOutput.Clear();
+            textBox1.Clear();
+            textBox2.Clear();
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
+        }
+
         private void BtnConvert_Click(object sender, EventArgs e)
         {
-            txtOutput.Text = LogicNotation.Conversion(txtInput.Text);
+            ClearValue();
+            if(txtInput.Text == "")
+            {
+                MessageBox.Show("Please give an input");
+            }
+            else
+            {
+                txtOutput.Text = LogicNotation.Conversion(txtInput.Text);
+            }
         }
+
 
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -32,13 +50,14 @@ namespace LogicApplication
             }
             else
             {
+                GenerateGraph.GetPrefixNotation(txtInput.Text);
                 GenerateGraph.GraphvizTextGenerator();
                 Process dot = new Process();
                 dot.StartInfo.FileName = @"C:\Program Files (x86)\Graphviz2.38\bin\dot.exe";
                 dot.StartInfo.Arguments = "-Tpng -o log.png log.dot";
                 dot.Start();
                 dot.WaitForExit();
-                binaryTree.ImageLocation = "log.png";
+                Process.Start("log.png");
             }
         }
 
@@ -71,11 +90,11 @@ namespace LogicApplication
                 }
 
                 //Check if the table can be simplified or not
-                textBox3.Clear();
+                lbCanBeSimplifiedOrNot.Text = "";
                 bool isSimplified = TableSimplifiableOrNot(LogicResult);
                 if (isSimplified)
                 {
-                    textBox3.Text = "Can be simplified";
+                    lbCanBeSimplifiedOrNot.Text = "This table can be simplified";
 
                     //Generate the simplified table
                     listBox2.Items.Add(Regex.Replace(finalDisplay, "(?<=.)(?!$)", "   |   ") + "   |   "); //generate label for this listbox, just like listbox1
@@ -90,7 +109,7 @@ namespace LogicApplication
                 }
                 else
                 {
-                    textBox3.Text = "Cannot be simplified";
+                    lbCanBeSimplifiedOrNot.Text = "This table cannot be simplified";
                 }
             }
         }
@@ -221,6 +240,11 @@ namespace LogicApplication
                     simplifiedResult.Add("0");
                 }
             }
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
         }
     }

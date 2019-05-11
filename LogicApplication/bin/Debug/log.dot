@@ -25,6 +25,10 @@ graph logic {
   node6 [label = "&"]
   node12 [label = "a"]
   node13 [label = "b"]
-  node7 [label = "c"]
+  node7 -- node14
+  node7 -- node15
+  node7 [label = "&"]
+  node14 [label = "a"]
+  node15 [label = "c"]
 
 }

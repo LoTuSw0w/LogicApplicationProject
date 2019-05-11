@@ -36,16 +36,18 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
-            this.binaryTree = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.binaryTree)).BeginInit();
+            this.lbInput = new System.Windows.Forms.Label();
+            this.lbOutput = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbNoOfPropositions = new System.Windows.Forms.Label();
+            this.lbCanBeSimplifiedOrNot = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtInput
             // 
             this.txtInput.Font = new System.Drawing.Font("DejaVu Sans Mono", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInput.Location = new System.Drawing.Point(12, 12);
+            this.txtInput.Location = new System.Drawing.Point(161, 12);
             this.txtInput.Name = "txtInput";
             this.txtInput.Size = new System.Drawing.Size(728, 31);
             this.txtInput.TabIndex = 0;
@@ -53,55 +55,58 @@
             // txtOutput
             // 
             this.txtOutput.Font = new System.Drawing.Font("DejaVu Sans Mono", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOutput.Location = new System.Drawing.Point(12, 49);
+            this.txtOutput.Location = new System.Drawing.Point(161, 49);
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.Size = new System.Drawing.Size(728, 31);
             this.txtOutput.TabIndex = 1;
             // 
             // btnConvert
             // 
-            this.btnConvert.Location = new System.Drawing.Point(802, 18);
+            this.btnConvert.Font = new System.Drawing.Font("DejaVu Sans Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConvert.Location = new System.Drawing.Point(15, 168);
             this.btnConvert.Name = "btnConvert";
-            this.btnConvert.Size = new System.Drawing.Size(75, 23);
+            this.btnConvert.Size = new System.Drawing.Size(140, 32);
             this.btnConvert.TabIndex = 2;
-            this.btnConvert.Text = "Convert";
+            this.btnConvert.Text = "Convert to Infix";
             this.btnConvert.UseVisualStyleBackColor = true;
             this.btnConvert.Click += new System.EventHandler(this.BtnConvert_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(883, 18);
+            this.button1.Font = new System.Drawing.Font("DejaVu Sans Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(16, 206);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 23);
+            this.button1.Size = new System.Drawing.Size(139, 33);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Generate Dot File";
+            this.button1.Text = "View Binary Tree";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(791, 47);
+            this.button2.Font = new System.Drawing.Font("DejaVu Sans Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(15, 245);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(127, 23);
+            this.button2.Size = new System.Drawing.Size(140, 36);
             this.button2.TabIndex = 4;
-            this.button2.Text = "Truth table";
+            this.button2.Text = "Generate truth table";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("DejaVu Sans Mono", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(614, 86);
+            this.textBox1.Location = new System.Drawing.Point(161, 86);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(453, 31);
+            this.textBox1.Size = new System.Drawing.Size(728, 31);
             this.textBox1.TabIndex = 5;
             // 
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("DejaVu Sans Mono", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(614, 123);
+            this.textBox2.Location = new System.Drawing.Point(161, 123);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(453, 31);
+            this.textBox2.Size = new System.Drawing.Size(56, 31);
             this.textBox2.TabIndex = 6;
             // 
             // listBox1
@@ -109,45 +114,81 @@
             this.listBox1.Font = new System.Drawing.Font("DejaVu Sans Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 14;
-            this.listBox1.Location = new System.Drawing.Point(1073, 173);
+            this.listBox1.Location = new System.Drawing.Point(223, 123);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(290, 396);
+            this.listBox1.Size = new System.Drawing.Size(353, 396);
             this.listBox1.TabIndex = 7;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("DejaVu Sans Mono", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(715, 160);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(352, 31);
-            this.textBox3.TabIndex = 8;
             // 
             // listBox2
             // 
             this.listBox2.Font = new System.Drawing.Font("DejaVu Sans Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 14;
-            this.listBox2.Location = new System.Drawing.Point(1073, 12);
+            this.listBox2.Location = new System.Drawing.Point(582, 123);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(290, 158);
+            this.listBox2.Size = new System.Drawing.Size(304, 158);
             this.listBox2.TabIndex = 9;
             // 
-            // binaryTree
+            // lbInput
             // 
-            this.binaryTree.Location = new System.Drawing.Point(21, 218);
-            this.binaryTree.Name = "binaryTree";
-            this.binaryTree.Size = new System.Drawing.Size(972, 438);
-            this.binaryTree.TabIndex = 10;
-            this.binaryTree.TabStop = false;
+            this.lbInput.AutoSize = true;
+            this.lbInput.Font = new System.Drawing.Font("DejaVu Sans Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInput.Location = new System.Drawing.Point(12, 20);
+            this.lbInput.Name = "lbInput";
+            this.lbInput.Size = new System.Drawing.Size(111, 15);
+            this.lbInput.TabIndex = 10;
+            this.lbInput.Text = "Prefix Input:";
+            // 
+            // lbOutput
+            // 
+            this.lbOutput.AutoSize = true;
+            this.lbOutput.Font = new System.Drawing.Font("DejaVu Sans Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOutput.Location = new System.Drawing.Point(12, 59);
+            this.lbOutput.Name = "lbOutput";
+            this.lbOutput.Size = new System.Drawing.Size(111, 15);
+            this.lbOutput.TabIndex = 11;
+            this.lbOutput.Text = "Infix output:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("DejaVu Sans Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 96);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 15);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Postfix form:";
+            // 
+            // lbNoOfPropositions
+            // 
+            this.lbNoOfPropositions.AutoSize = true;
+            this.lbNoOfPropositions.Font = new System.Drawing.Font("DejaVu Sans Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNoOfPropositions.Location = new System.Drawing.Point(12, 133);
+            this.lbNoOfPropositions.Name = "lbNoOfPropositions";
+            this.lbNoOfPropositions.Size = new System.Drawing.Size(143, 15);
+            this.lbNoOfPropositions.TabIndex = 13;
+            this.lbNoOfPropositions.Text = "No. Propositions:";
+            // 
+            // lbCanBeSimplifiedOrNot
+            // 
+            this.lbCanBeSimplifiedOrNot.AutoSize = true;
+            this.lbCanBeSimplifiedOrNot.Font = new System.Drawing.Font("DejaVu Sans Mono", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCanBeSimplifiedOrNot.Location = new System.Drawing.Point(12, 173);
+            this.lbCanBeSimplifiedOrNot.Name = "lbCanBeSimplifiedOrNot";
+            this.lbCanBeSimplifiedOrNot.Size = new System.Drawing.Size(0, 19);
+            this.lbCanBeSimplifiedOrNot.TabIndex = 14;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1375, 686);
-            this.Controls.Add(this.binaryTree);
+            this.ClientSize = new System.Drawing.Size(898, 537);
+            this.Controls.Add(this.lbCanBeSimplifiedOrNot);
+            this.Controls.Add(this.lbNoOfPropositions);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbOutput);
+            this.Controls.Add(this.lbInput);
             this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -158,7 +199,7 @@
             this.Controls.Add(this.txtInput);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.binaryTree)).EndInit();
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,9 +215,12 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.PictureBox binaryTree;
+        private System.Windows.Forms.Label lbInput;
+        private System.Windows.Forms.Label lbOutput;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbNoOfPropositions;
+        private System.Windows.Forms.Label lbCanBeSimplifiedOrNot;
     }
 }
 

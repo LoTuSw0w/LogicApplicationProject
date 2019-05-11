@@ -67,6 +67,7 @@ namespace LogicApplication
             return toBeProcessed;
         }
 
+
         //Function to count the number of logical proposition
         public static int CountLogicProposition(string s)
         {
