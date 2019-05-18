@@ -1,0 +1,10 @@
+C:\Users\Dung Luong\source\repos\LPP\LPP\bin\Debug\LPP.exe.config
+C:\Users\Dung Luong\source\repos\LPP\LPP\bin\Debug\LPP.exe
+C:\Users\Dung Luong\source\repos\LPP\LPP\bin\Debug\LPP.pdb
+C:\Users\Dung Luong\source\repos\LPP\LPP\obj\Debug\LPP.csprojAssemblyReference.cache
+C:\Users\Dung Luong\source\repos\LPP\LPP\obj\Debug\LPP.Form1.resources
+C:\Users\Dung Luong\source\repos\LPP\LPP\obj\Debug\LPP.Properties.Resources.resources
+C:\Users\Dung Luong\source\repos\LPP\LPP\obj\Debug\LPP.csproj.GenerateResource.cache
+C:\Users\Dung Luong\source\repos\LPP\LPP\obj\Debug\LPP.csproj.CoreCompileInputs.cache
+C:\Users\Dung Luong\source\repos\LPP\LPP\obj\Debug\LPP.exe
+C:\Users\Dung Luong\source\repos\LPP\LPP\obj\Debug\LPP.pdb
