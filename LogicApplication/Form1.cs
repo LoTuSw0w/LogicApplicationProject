@@ -83,15 +83,25 @@ namespace LogicApplication
                 //Calculate value for the truth table
                 List<string> DisplayValue = TruthTable.SetupTruthTable(Convert.ToInt32(textBox2.Text));
                 List<string> LogicResult = TruthTable.LogicalEvaluation(DisplayValue, txtInput.Text);
+
+
+                //Display values for the truth table
                 for (int i = 0; i < DisplayValue.Count; i++)
                 {
                     string result1 = Regex.Replace(DisplayValue[i], "(?<=.)(?!$)", "   |   ");
                     listBox1.Items.Add(result1 + "   |   " + LogicResult[i]);
                 }
 
+                //Generate DNF. Assigning new list to prevent intefering with the main lists
+                List<string> allResults = LogicResult;
+                List<string> allValues = DisplayValue;
+                string DNFDisplay = DNF.GenerateDNFString(allResults, allValues, GenerateLabel());
+                txtDNF.Text = DNFDisplay;
+
                 //Check if the table can be simplified or not
-                lbCanBeSimplifiedOrNot.Text = "";
                 bool isSimplified = TableSimplifiableOrNot(LogicResult);
+                //If the table can be simplified, then
+                lbCanBeSimplifiedOrNot.Text = "";
                 if (isSimplified)
                 {
                     lbCanBeSimplifiedOrNot.Text = "This table can be simplified";

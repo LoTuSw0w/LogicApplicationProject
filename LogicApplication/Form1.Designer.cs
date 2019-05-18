@@ -42,6 +42,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbNoOfPropositions = new System.Windows.Forms.Label();
             this.lbCanBeSimplifiedOrNot = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtDNF = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtInput
@@ -63,7 +65,7 @@
             // btnConvert
             // 
             this.btnConvert.Font = new System.Drawing.Font("DejaVu Sans Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConvert.Location = new System.Drawing.Point(15, 168);
+            this.btnConvert.Location = new System.Drawing.Point(222, 161);
             this.btnConvert.Name = "btnConvert";
             this.btnConvert.Size = new System.Drawing.Size(140, 32);
             this.btnConvert.TabIndex = 2;
@@ -74,7 +76,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("DejaVu Sans Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(16, 206);
+            this.button1.Location = new System.Drawing.Point(368, 161);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(139, 33);
             this.button1.TabIndex = 3;
@@ -85,9 +87,9 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("DejaVu Sans Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(15, 245);
+            this.button2.Location = new System.Drawing.Point(513, 161);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(140, 36);
+            this.button2.Size = new System.Drawing.Size(159, 33);
             this.button2.TabIndex = 4;
             this.button2.Text = "Generate truth table";
             this.button2.UseVisualStyleBackColor = true;
@@ -104,7 +106,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("DejaVu Sans Mono", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(161, 123);
+            this.textBox2.Location = new System.Drawing.Point(160, 162);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(56, 31);
             this.textBox2.TabIndex = 6;
@@ -114,9 +116,9 @@
             this.listBox1.Font = new System.Drawing.Font("DejaVu Sans Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 14;
-            this.listBox1.Location = new System.Drawing.Point(223, 123);
+            this.listBox1.Location = new System.Drawing.Point(26, 243);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(353, 396);
+            this.listBox1.Size = new System.Drawing.Size(353, 256);
             this.listBox1.TabIndex = 7;
             // 
             // listBox2
@@ -124,9 +126,9 @@
             this.listBox2.Font = new System.Drawing.Font("DejaVu Sans Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 14;
-            this.listBox2.Location = new System.Drawing.Point(582, 123);
+            this.listBox2.Location = new System.Drawing.Point(404, 313);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(304, 158);
+            this.listBox2.Size = new System.Drawing.Size(304, 186);
             this.listBox2.TabIndex = 9;
             // 
             // lbInput
@@ -163,7 +165,7 @@
             // 
             this.lbNoOfPropositions.AutoSize = true;
             this.lbNoOfPropositions.Font = new System.Drawing.Font("DejaVu Sans Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNoOfPropositions.Location = new System.Drawing.Point(12, 133);
+            this.lbNoOfPropositions.Location = new System.Drawing.Point(11, 172);
             this.lbNoOfPropositions.Name = "lbNoOfPropositions";
             this.lbNoOfPropositions.Size = new System.Drawing.Size(143, 15);
             this.lbNoOfPropositions.TabIndex = 13;
@@ -173,16 +175,36 @@
             // 
             this.lbCanBeSimplifiedOrNot.AutoSize = true;
             this.lbCanBeSimplifiedOrNot.Font = new System.Drawing.Font("DejaVu Sans Mono", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCanBeSimplifiedOrNot.Location = new System.Drawing.Point(12, 173);
+            this.lbCanBeSimplifiedOrNot.Location = new System.Drawing.Point(22, 206);
             this.lbCanBeSimplifiedOrNot.Name = "lbCanBeSimplifiedOrNot";
             this.lbCanBeSimplifiedOrNot.Size = new System.Drawing.Size(0, 19);
             this.lbCanBeSimplifiedOrNot.TabIndex = 14;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("DejaVu Sans Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(11, 133);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(39, 15);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "DNF:";
+            // 
+            // txtDNF
+            // 
+            this.txtDNF.Font = new System.Drawing.Font("DejaVu Sans Mono", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDNF.Location = new System.Drawing.Point(160, 123);
+            this.txtDNF.Name = "txtDNF";
+            this.txtDNF.Size = new System.Drawing.Size(728, 31);
+            this.txtDNF.TabIndex = 15;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 537);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtDNF);
             this.Controls.Add(this.lbCanBeSimplifiedOrNot);
             this.Controls.Add(this.lbNoOfPropositions);
             this.Controls.Add(this.label1);
@@ -221,6 +243,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbNoOfPropositions;
         private System.Windows.Forms.Label lbCanBeSimplifiedOrNot;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtDNF;
     }
 }
 
