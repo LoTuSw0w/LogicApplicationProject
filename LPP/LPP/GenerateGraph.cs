@@ -54,7 +54,7 @@ namespace LPP
 
             for (int i = 0; i < ToBeProcessed.Length; i++)
             {
-                if (!allNodes.Contains(currentNode))
+                if (!allNodes.Contains(currentNode) || ToBeProcessed[i - 1] == '~')
                 {
                     allNodes.Add(currentNode);
 

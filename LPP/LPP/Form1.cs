@@ -99,11 +99,13 @@ namespace LPP
             {
                 //Get the requisite value to generate a truth table
                 listBox1.Items.Clear();
+                listBox2.Items.Clear();
                 string countLogicPropositions = TruthTable.CountLogicProposition(txtInput.Text).ToString();
 
-                //Display the label for the truth table and remove repetition in logic proposition
+                //Display the label for the truth tables and remove repetition in logic proposition
                 string finalDisplay = GenerateLabel();
                 listBox1.Items.Add(Regex.Replace(finalDisplay, "(?<=.)(?!$)", "   |   ") + "   |   ");
+                
 
 
                 //Calculate value for the truth table
@@ -117,6 +119,71 @@ namespace LPP
                     string result1 = Regex.Replace(DisplayValue[i], "(?<=.)(?!$)", "   |   ");
                     listBox1.Items.Add(result1 + "   |   " + LogicResult[i]);
                 }
+
+                ///
+                ///
+                ///
+                ///
+                //Display values for the simplified truth table
+
+                //The two lists will be used to display to the form
+                List<string> DisplayListTrue = new List<string>();
+                List<string> DisplayListFalse = new List<string>();
+
+                //the two lists needed for the function Sort0and1
+                List<int> sortedList0 = new List<int>();
+                List<int> sortedList1 = new List<int>();
+
+                //property needed for the function
+                int NoOfPropositions = TruthTable.CountLogicProposition(txtInput.Text);
+
+                //sort 0 and 1 separately
+                TruthTable.Sort0and1(LogicResult, NoOfPropositions, out sortedList0, out sortedList1);
+
+                //The first function will form the first simplified version of the results, then complete the simplified table with a recursion function 
+                //(I have problems with managing different inputs for the functions, so I ended up making two functions instead)
+                DisplayListFalse = TruthTable.findRepetitionBeginning(sortedList0, NoOfPropositions);
+                DisplayListFalse = TruthTable.FindRepetitionEnding(DisplayListFalse);
+
+                //just some hard code for displaying
+                if(LogicResult[0] == "0")
+                {
+                    DisplayListFalse.Insert(0, DisplayValue[0]);
+                }
+                
+                DisplayListTrue = TruthTable.findRepetitionBeginning(sortedList1, NoOfPropositions);
+                DisplayListTrue = TruthTable.FindRepetitionEnding(DisplayListTrue);
+
+                //just some hard code for displaying
+                if (LogicResult[LogicResult.Count - 1] == "1")
+                {
+                    DisplayListTrue.Add(DisplayValue[DisplayValue.Count -1]);
+                }
+
+                //Display label for the simplified truth table with regex
+                listBox2.Items.Add(Regex.Replace(finalDisplay, "(?<=.)(?!$)", "   |   ") + "   |   ");
+
+                for(int i = 0; i < DisplayListFalse.Count; i++)
+                {
+                    string result1 = Regex.Replace(DisplayListFalse[i], "(?<=.)(?!$)", "   |   ");
+                    listBox2.Items.Add(result1 + "   |   " + 0);
+                }
+
+
+                for (int i = 0; i < DisplayListTrue.Count; i++)
+                {
+                    string result1 = Regex.Replace(DisplayListTrue[i], "(?<=.)(?!$)", "   |   ");
+                    listBox2.Items.Add(result1 + "   |   " + 1);
+                }
+
+                //foreach (string s in DisplayListFalse)
+                //{
+                //    listBox2.Items.Add(s + "    0");
+                //}
+                //foreach(string s in DisplayListTrue)
+                //{
+                //    listBox2.Items.Add(s + "    1");
+                //}
             }
         }
     }

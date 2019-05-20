@@ -209,6 +209,173 @@ namespace LPP
             }
             return final;
         }
+
+
+        /////////////////////////////////////
+        /////////////////////////////////////
+        /////////////////////////////////////
+        /////////////////////////////////////
+        /////////////////////////////////////functions for generating simplified truth table
+
+        public static void Sort0and1(List<string> resultList, int noOfPropositions, out List<int> sortedList0, out List<int> sortedList1)
+        {
+            sortedList0 = new List<int>();
+            sortedList1 = new List<int>();
+
+            for (int i = 0; i < resultList.Count; i++)
+            {
+                if (resultList[i] == "0")
+                {
+                    sortedList0.Add(i);
+                }
+                else
+                {
+                    sortedList1.Add(i);
+                }
+            }
+        }
+
+
+        //Take a list of integer and return a new list whose each object has one repetition value "⋆" 
+        public static List<string> findRepetitionBeginning(List<int> inputList, int NoOfInput)
+        {
+            List<string> repetitionString = new List<string>();
+            int currentIndex = 0;
+
+            foreach (int s in inputList)
+            {
+                for (int j = currentIndex + 1; j < inputList.Count; j++)
+                {
+                    if (currentIndex == inputList.Count - 1)
+                    {
+                        break;
+                    }
+                    int diff = NoOfDifferentBit(inputList[currentIndex], inputList[j]);
+                    if (diff <= 1)
+                    {
+                        //this string will be added to the list at the beginning of the function
+                        string toBeAdded = "";
+                        //convert two current numbers into binary char array
+                        char[] numberi = Convert.ToString(inputList[currentIndex], 2).PadLeft(NoOfInput, '0').ToCharArray();
+                        char[] numberj = Convert.ToString(inputList[j], 2).PadLeft(NoOfInput, '0').ToCharArray();
+                        //comparing two strings to find the different bit, and thus replace that bit with the char '-'
+                        for (int k = 0; k < numberi.Length; k++)
+                        {
+
+                            if (numberi[k] != numberj[k])
+                            {
+                                toBeAdded += "⋆";
+                            }
+                            else
+                            {
+                                toBeAdded += numberi[k];
+                            }
+                        }
+                        repetitionString.Add(toBeAdded);
+                    }
+
+                }
+                currentIndex++;
+            }
+
+
+            //remove repetition string in the list and return it
+            repetitionString = repetitionString.Distinct().ToList();
+            return repetitionString;
+        }
+
+        //this is the recursion function that will loop over and over again until the results is simplified
+        public static List<string> FindRepetitionEnding(List<string> inputList)
+        {
+            List<string> toReturnList = new List<string>();
+            int currentIndex = 0;
+
+            foreach (string s in inputList)
+            {
+                for (int j = currentIndex + 1; j <= inputList.Count; j++)
+                {
+                    if(j == inputList.Count)
+                    {
+                        break;
+                    }
+                    int diff = NoOfDifferentSymbol(inputList[currentIndex], inputList[j]);
+                    if (diff <= 1)
+                    {
+                        string toBeAdded = "";
+                        var currenti = inputList[currentIndex].ToCharArray();
+                        var currentj = inputList[j].ToCharArray();
+                        for (int k = 0; k < currenti.Length; k++)
+                        {
+                            if (currenti[k] != currentj[k])
+                            {
+                                toBeAdded += "⋆";
+                            }
+                            else
+                            {
+                                toBeAdded += currenti[k];
+                            }
+                        }
+                        toReturnList.Add(toBeAdded);
+                    }
+                }
+                currentIndex++;
+            }
+
+            //remove repetition string in the list 
+            toReturnList = toReturnList.Distinct().ToList();
+
+            //if the table cannot be simplified further, return the old list
+            if(toReturnList.Count == 0)
+            {
+                toReturnList = inputList;
+                return toReturnList;
+            }
+            //recursion to check if the table can still be simplified or not
+            if (toReturnList.Count < inputList.Count)
+            {
+                return FindRepetitionEnding(toReturnList);
+            }
+            //default case
+            else
+            {
+                return toReturnList;
+            }
+        }
+
+        public static int NoOfDifferentBit(int a, int b)
+        {
+            int CountDifferent = 0;
+
+            //assuming that the biggest number is 2^31
+            for (int i = 0; i < 31; i++)
+            {
+                //Right shift each number i bits to the right and compare if the 2^0 position is different among two numbers
+                if (((a >> i) & 1) != ((b >> i) & 1))
+                {
+                    CountDifferent++;
+                }
+            }
+
+            return CountDifferent;
+        }
+
+        public static int NoOfDifferentSymbol(string a, string b)
+        {
+            int CountDifferent = 0;
+            var arrayA = a.ToCharArray();
+            var arrayB = b.ToCharArray();
+
+            for (int i = 0; i < arrayA.Length; i++)
+            {
+                if (arrayA[i] != arrayB[i])
+                {
+                    CountDifferent++;
+                }
+            }
+
+            return CountDifferent;
+        }
+
     }
 
     class CalculateLogic
