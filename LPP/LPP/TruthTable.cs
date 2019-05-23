@@ -235,60 +235,82 @@ namespace LPP
             }
         }
 
+        //Form Simplified Truth Table for Tautology or Contradiction
+        public static string FormTOrC(int NoOfInput)
+        {
+            //String to be returned
+            string toBeReturned = "";
+
+            //A for loop to create a string of all '⋆' symbol"
+            for (int i = 0; i < NoOfInput; i++)
+            {
+                toBeReturned += "⋆";
+            }
+
+            //returning
+            return toBeReturned;
+        }
+
 
         //Take a list of integer and return a new list whose each object has one repetition value "⋆" 
         public static List<string> findRepetitionBeginning(List<int> inputList, int NoOfInput)
         {
             List<string> repetitionString = new List<string>();
             int currentIndex = 0;
-
-            if (inputList.Count == 1)
+            if (inputList.Count == 0)
             {
-                string returnNumber = Convert.ToString(inputList[0], 2).PadLeft(NoOfInput, '0');
-                repetitionString.Add(returnNumber);
                 return repetitionString;
             }
             else
             {
-                foreach (int s in inputList)
+                if (inputList.Count == 1)
                 {
-                    for (int j = currentIndex + 1; j < inputList.Count; j++)
-                    {
-                        if (currentIndex == inputList.Count - 1)
-                        {
-                            break;
-                        }
-                        int diff = NoOfDifferentBit(inputList[currentIndex], inputList[j]);
-                        if (diff <= 1)
-                        {
-                            //this string will be added to the list at the beginning of the function
-                            string toBeAdded = "";
-                            //convert two current numbers into binary char array
-                            char[] numberi = Convert.ToString(inputList[currentIndex], 2).PadLeft(NoOfInput, '0').ToCharArray();
-                            char[] numberj = Convert.ToString(inputList[j], 2).PadLeft(NoOfInput, '0').ToCharArray();
-                            //comparing two strings to find the different bit, and thus replace that bit with the char '-'
-                            for (int k = 0; k < numberi.Length; k++)
-                            {
-
-                                if (numberi[k] != numberj[k])
-                                {
-                                    toBeAdded += "⋆";
-                                }
-                                else
-                                {
-                                    toBeAdded += numberi[k];
-                                }
-                            }
-                            repetitionString.Add(toBeAdded);
-                        }
-
-                    }
-                    currentIndex++;
+                    string returnNumber = Convert.ToString(inputList[0], 2).PadLeft(NoOfInput, '0');
+                    repetitionString.Add(returnNumber);
+                    return repetitionString;
                 }
+                else
+                {
+                    foreach (int s in inputList)
+                    {
+                        for (int j = currentIndex + 1; j < inputList.Count; j++)
+                        {
+                            if (currentIndex == inputList.Count - 1)
+                            {
+                                break;
+                            }
+                            int diff = NoOfDifferentBit(inputList[currentIndex], inputList[j]);
+                            if (diff <= 1)
+                            {
+                                //this string will be added to the list at the beginning of the function
+                                string toBeAdded = "";
+                                //convert two current numbers into binary char array
+                                char[] numberi = Convert.ToString(inputList[currentIndex], 2).PadLeft(NoOfInput, '0').ToCharArray();
+                                char[] numberj = Convert.ToString(inputList[j], 2).PadLeft(NoOfInput, '0').ToCharArray();
+                                //comparing two strings to find the different bit, and thus replace that bit with the char '-'
+                                for (int k = 0; k < numberi.Length; k++)
+                                {
 
-                //remove repetition string in the list and return it
-                repetitionString = repetitionString.Distinct().ToList();
-                return repetitionString;
+                                    if (numberi[k] != numberj[k])
+                                    {
+                                        toBeAdded += "⋆";
+                                    }
+                                    else
+                                    {
+                                        toBeAdded += numberi[k];
+                                    }
+                                }
+                                repetitionString.Add(toBeAdded);
+                            }
+
+                        }
+                        currentIndex++;
+                    }
+
+                    //remove repetition string in the list and return it
+                    repetitionString = repetitionString.Distinct().ToList();
+                    return repetitionString;
+                }
             }
         }
 

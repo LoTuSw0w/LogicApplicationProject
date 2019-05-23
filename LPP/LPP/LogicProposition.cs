@@ -95,7 +95,7 @@ namespace LPP
                         return imply.ReturnString();
                     case '=':
                         IndexOfCenterComma(s, out left, out right);
-                        OrClass equal = new OrClass(ProcessLogic(left), ProcessLogic(right));
+                        EquivalentClass equal = new EquivalentClass(ProcessLogic(left), ProcessLogic(right));
                         return equal.ReturnString();
                     default:
                         IndexOfCenterComma(s, out left, out right);

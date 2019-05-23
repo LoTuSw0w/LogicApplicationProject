@@ -145,8 +145,16 @@ namespace LPP
 
                 //The first function will form the first simplified version of the results, then complete the simplified table with a recursion function 
                 //(I have problems with managing different inputs for the functions, so I ended up making two functions instead)
-                DisplayListFalse = TruthTable.findRepetitionBeginning(sortedList0, NoOfPropositions);
-                DisplayListFalse = TruthTable.FindRepetitionEnding(DisplayListFalse);
+                if(sortedList0.Count == 0)
+                {
+                    //if it is a Tautology
+                    DisplayListTrue.Add(TruthTable.FormTOrC(NoOfPropositions));
+                }
+                else
+                {
+                    DisplayListFalse = TruthTable.findRepetitionBeginning(sortedList0, NoOfPropositions);
+                    DisplayListFalse = TruthTable.FindRepetitionEnding(DisplayListFalse);
+                }
 
                 //Print each item in the list
                 for (int i = 0; i < DisplayListFalse.Count; i++)
@@ -157,8 +165,16 @@ namespace LPP
                 //Clear list for the next function since this list is static
                 TruthTable.clearListnoLongerBeSimplified();
 
-                DisplayListTrue = TruthTable.findRepetitionBeginning(sortedList1, NoOfPropositions);
-                DisplayListTrue = TruthTable.FindRepetitionEnding(DisplayListTrue);
+                if (sortedList1.Count == 0)
+                {
+                    //if it is a Contradiction
+                    DisplayListFalse.Add(TruthTable.FormTOrC(NoOfPropositions));
+                }
+                else
+                {
+                    DisplayListTrue = TruthTable.findRepetitionBeginning(sortedList1, NoOfPropositions);
+                    DisplayListTrue = TruthTable.FindRepetitionEnding(DisplayListTrue);
+                }
 
                 for (int i = 0; i < DisplayListTrue.Count; i++)
                 {
