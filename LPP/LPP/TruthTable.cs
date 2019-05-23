@@ -242,46 +242,63 @@ namespace LPP
             List<string> repetitionString = new List<string>();
             int currentIndex = 0;
 
-            foreach (int s in inputList)
+            if (inputList.Count == 1)
             {
-                for (int j = currentIndex + 1; j < inputList.Count; j++)
-                {
-                    if (currentIndex == inputList.Count - 1)
-                    {
-                        break;
-                    }
-                    int diff = NoOfDifferentBit(inputList[currentIndex], inputList[j]);
-                    if (diff <= 1)
-                    {
-                        //this string will be added to the list at the beginning of the function
-                        string toBeAdded = "";
-                        //convert two current numbers into binary char array
-                        char[] numberi = Convert.ToString(inputList[currentIndex], 2).PadLeft(NoOfInput, '0').ToCharArray();
-                        char[] numberj = Convert.ToString(inputList[j], 2).PadLeft(NoOfInput, '0').ToCharArray();
-                        //comparing two strings to find the different bit, and thus replace that bit with the char '-'
-                        for (int k = 0; k < numberi.Length; k++)
-                        {
-
-                            if (numberi[k] != numberj[k])
-                            {
-                                toBeAdded += "⋆";
-                            }
-                            else
-                            {
-                                toBeAdded += numberi[k];
-                            }
-                        }
-                        repetitionString.Add(toBeAdded);
-                    }
-
-                }
-                currentIndex++;
+                string returnNumber = Convert.ToString(inputList[0], 2).PadLeft(NoOfInput, '0');
+                repetitionString.Add(returnNumber);
+                return repetitionString;
             }
+            else
+            {
+                foreach (int s in inputList)
+                {
+                    for (int j = currentIndex + 1; j < inputList.Count; j++)
+                    {
+                        if (currentIndex == inputList.Count - 1)
+                        {
+                            break;
+                        }
+                        int diff = NoOfDifferentBit(inputList[currentIndex], inputList[j]);
+                        if (diff <= 1)
+                        {
+                            //this string will be added to the list at the beginning of the function
+                            string toBeAdded = "";
+                            //convert two current numbers into binary char array
+                            char[] numberi = Convert.ToString(inputList[currentIndex], 2).PadLeft(NoOfInput, '0').ToCharArray();
+                            char[] numberj = Convert.ToString(inputList[j], 2).PadLeft(NoOfInput, '0').ToCharArray();
+                            //comparing two strings to find the different bit, and thus replace that bit with the char '-'
+                            for (int k = 0; k < numberi.Length; k++)
+                            {
 
+                                if (numberi[k] != numberj[k])
+                                {
+                                    toBeAdded += "⋆";
+                                }
+                                else
+                                {
+                                    toBeAdded += numberi[k];
+                                }
+                            }
+                            repetitionString.Add(toBeAdded);
+                        }
 
-            //remove repetition string in the list and return it
-            repetitionString = repetitionString.Distinct().ToList();
-            return repetitionString;
+                    }
+                    currentIndex++;
+                }
+
+                //remove repetition string in the list and return it
+                repetitionString = repetitionString.Distinct().ToList();
+                return repetitionString;
+            }
+        }
+
+        //This list will hold all the string that cannot be simplified further
+        private static List<string> noLongerBeSimplified = new List<string>();
+
+        //Clear all items in the static list
+        public static void clearListnoLongerBeSimplified()
+        {
+            noLongerBeSimplified.Clear();
         }
 
         //this is the recursion function that will loop over and over again until the results is simplified
@@ -292,15 +309,19 @@ namespace LPP
 
             foreach (string s in inputList)
             {
+                //an int to decide whether the string s can be simplified or not
+                int counter = 0;
+                //for loop to compare the current s string with the rest
                 for (int j = currentIndex + 1; j <= inputList.Count; j++)
                 {
-                    if(j == inputList.Count)
+                    if (j == inputList.Count)
                     {
                         break;
                     }
                     int diff = NoOfDifferentSymbol(inputList[currentIndex], inputList[j]);
                     if (diff <= 1)
                     {
+                        counter++;
                         string toBeAdded = "";
                         var currenti = inputList[currentIndex].ToCharArray();
                         var currentj = inputList[j].ToCharArray();
@@ -318,27 +339,42 @@ namespace LPP
                         toReturnList.Add(toBeAdded);
                     }
                 }
+                //if this string cannot be simplified further, add it to a separate list
+                if (counter == 0)
+                {
+                    noLongerBeSimplified.Add(s);
+                }
                 currentIndex++;
             }
 
             //remove repetition string in the list 
             toReturnList = toReturnList.Distinct().ToList();
 
-            //if the table cannot be simplified further, return the old list
-            if(toReturnList.Count == 0)
-            {
-                toReturnList = inputList;
-                return toReturnList;
-            }
             //recursion to check if the table can still be simplified or not
-            if (toReturnList.Count < inputList.Count)
+            if (toReturnList.Count < inputList.Count && toReturnList.Count != 0)
             {
-                return FindRepetitionEnding(toReturnList);
+                //removing dynamic sizing to increase performance when merging the two lists
+                var returningFinalList = new List<string>(noLongerBeSimplified.Count + toReturnList.Count);
+                returningFinalList.AddRange(noLongerBeSimplified);
+                returningFinalList.AddRange(toReturnList);
+                //This list needs to be cleared since the recursion will run again and thus needs a clean list
+                clearListnoLongerBeSimplified();
+                //remove repetition
+                returningFinalList = returningFinalList.Distinct().ToList();
+                return FindRepetitionEnding(returningFinalList);
             }
             //default case
             else
             {
-                return toReturnList;
+                toReturnList = inputList;
+                //removing dynamic sizing to increase performance when merging the two lists
+                var returningFinalList = new List<string>(noLongerBeSimplified.Count + toReturnList.Count);
+                returningFinalList.AddRange(noLongerBeSimplified);
+                returningFinalList.AddRange(toReturnList);
+                //remove repetition
+                returningFinalList = returningFinalList.Distinct().ToList();
+                return returningFinalList;
+
             }
         }
 
@@ -346,7 +382,7 @@ namespace LPP
         {
             int CountDifferent = 0;
 
-            //assuming that the biggest number is 2^31
+            //since that the biggest number is 2^31 (the maximun value of an integer)
             for (int i = 0; i < 31; i++)
             {
                 //Right shift each number i bits to the right and compare if the 2^0 position is different among two numbers

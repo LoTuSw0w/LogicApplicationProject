@@ -137,6 +137,9 @@ namespace LPP
                 //property needed for the function
                 int NoOfPropositions = TruthTable.CountLogicProposition(txtInput.Text);
 
+                //Display label for the simplified truth table with regex
+                listBox2.Items.Add(Regex.Replace(finalDisplay, "(?<=.)(?!$)", "   |   ") + "   |   ");
+
                 //sort 0 and 1 separately
                 TruthTable.Sort0and1(LogicResult, NoOfPropositions, out sortedList0, out sortedList1);
 
@@ -145,36 +148,26 @@ namespace LPP
                 DisplayListFalse = TruthTable.findRepetitionBeginning(sortedList0, NoOfPropositions);
                 DisplayListFalse = TruthTable.FindRepetitionEnding(DisplayListFalse);
 
-                //just some hard code for displaying
-                if(LogicResult[0] == "0")
-                {
-                    DisplayListFalse.Insert(0, DisplayValue[0]);
-                }
-                
-                DisplayListTrue = TruthTable.findRepetitionBeginning(sortedList1, NoOfPropositions);
-                DisplayListTrue = TruthTable.FindRepetitionEnding(DisplayListTrue);
-
-                //just some hard code for displaying
-                if (LogicResult[LogicResult.Count - 1] == "1")
-                {
-                    DisplayListTrue.Add(DisplayValue[DisplayValue.Count -1]);
-                }
-
-                //Display label for the simplified truth table with regex
-                listBox2.Items.Add(Regex.Replace(finalDisplay, "(?<=.)(?!$)", "   |   ") + "   |   ");
-
-                for(int i = 0; i < DisplayListFalse.Count; i++)
+                //Print each item in the list
+                for (int i = 0; i < DisplayListFalse.Count; i++)
                 {
                     string result1 = Regex.Replace(DisplayListFalse[i], "(?<=.)(?!$)", "   |   ");
                     listBox2.Items.Add(result1 + "   |   " + 0);
                 }
+                //Clear list for the next function since this list is static
+                TruthTable.clearListnoLongerBeSimplified();
 
+                DisplayListTrue = TruthTable.findRepetitionBeginning(sortedList1, NoOfPropositions);
+                DisplayListTrue = TruthTable.FindRepetitionEnding(DisplayListTrue);
 
                 for (int i = 0; i < DisplayListTrue.Count; i++)
                 {
                     string result1 = Regex.Replace(DisplayListTrue[i], "(?<=.)(?!$)", "   |   ");
                     listBox2.Items.Add(result1 + "   |   " + 1);
                 }
+
+                //Clear list for the next function since this list is static
+                TruthTable.clearListnoLongerBeSimplified();
 
                 //foreach (string s in DisplayListFalse)
                 //{
@@ -183,6 +176,17 @@ namespace LPP
                 //foreach(string s in DisplayListTrue)
                 //{
                 //    listBox2.Items.Add(s + "    1");
+                //}
+
+                ////just some hard code for displaying
+                //if(LogicResult[0] == "0")
+                //{
+                //    DisplayListFalse.Insert(0, DisplayValue[0]);
+                //}
+                ////just some hard code for displaying
+                //if (LogicResult[LogicResult.Count - 1] == "1")
+                //{
+                //    DisplayListTrue.Add(DisplayValue[DisplayValue.Count - 1]);
                 //}
             }
         }
