@@ -8,7 +8,21 @@ namespace LPP
 {
     class LogicProposition
     {
-        public static int IndexOfCenterComma(string s, out Input ileftString, out Input irightString)
+        private string logicString;
+
+        public void setLogicString(string s)
+        {
+            logicString = s;
+        }
+
+        public string returnLogicString()
+        {
+            return logicString;
+        }
+
+
+        //Find the index of the center comma
+        public int IndexOfCenterComma(string s, out Input ileftString, out Input irightString)
         {
             if (s.Contains(',') && s.Length >= 4)
             {
@@ -61,7 +75,7 @@ namespace LPP
 
         }
 
-        public static bool CheckOperator(char c)
+        public bool CheckOperator(char c)
         {
             switch (c)
             {
@@ -75,8 +89,8 @@ namespace LPP
             return false;
         }
 
-
-        public static string ProcessLogic(Input i)
+        //recursion function to process the prefix input
+        public string ProcessLogic(Input i)
         {
             string s = i.getInputString();
             //cleaner code

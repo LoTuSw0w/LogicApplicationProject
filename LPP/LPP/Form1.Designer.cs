@@ -36,6 +36,9 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.lbCanBeSimplified = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
+            this.txtDNF = new System.Windows.Forms.TextBox();
+            this.txtClearAll = new System.Windows.Forms.Button();
+            this.txtHashCode = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtInput
@@ -47,14 +50,14 @@
             // 
             // txtOutput
             // 
-            this.txtOutput.Location = new System.Drawing.Point(49, 81);
+            this.txtOutput.Location = new System.Drawing.Point(49, 67);
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.Size = new System.Drawing.Size(428, 20);
             this.txtOutput.TabIndex = 1;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(52, 138);
+            this.btnSubmit.Location = new System.Drawing.Point(48, 162);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 2;
@@ -64,7 +67,7 @@
             // 
             // btnBinaryTree
             // 
-            this.btnBinaryTree.Location = new System.Drawing.Point(133, 138);
+            this.btnBinaryTree.Location = new System.Drawing.Point(129, 162);
             this.btnBinaryTree.Name = "btnBinaryTree";
             this.btnBinaryTree.Size = new System.Drawing.Size(75, 23);
             this.btnBinaryTree.TabIndex = 3;
@@ -74,7 +77,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(214, 138);
+            this.button1.Location = new System.Drawing.Point(210, 162);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
@@ -106,11 +109,38 @@
             this.listBox2.Size = new System.Drawing.Size(218, 186);
             this.listBox2.TabIndex = 7;
             // 
+            // txtDNF
+            // 
+            this.txtDNF.Location = new System.Drawing.Point(49, 106);
+            this.txtDNF.Name = "txtDNF";
+            this.txtDNF.Size = new System.Drawing.Size(428, 20);
+            this.txtDNF.TabIndex = 8;
+            // 
+            // txtClearAll
+            // 
+            this.txtClearAll.Location = new System.Drawing.Point(291, 162);
+            this.txtClearAll.Name = "txtClearAll";
+            this.txtClearAll.Size = new System.Drawing.Size(75, 23);
+            this.txtClearAll.TabIndex = 9;
+            this.txtClearAll.Text = "Clear all";
+            this.txtClearAll.UseVisualStyleBackColor = true;
+            this.txtClearAll.Click += new System.EventHandler(this.TxtClearAll_Click);
+            // 
+            // txtHashCode
+            // 
+            this.txtHashCode.Location = new System.Drawing.Point(48, 136);
+            this.txtHashCode.Name = "txtHashCode";
+            this.txtHashCode.Size = new System.Drawing.Size(428, 20);
+            this.txtHashCode.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(736, 450);
+            this.Controls.Add(this.txtHashCode);
+            this.Controls.Add(this.txtClearAll);
+            this.Controls.Add(this.txtDNF);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.lbCanBeSimplified);
             this.Controls.Add(this.listBox1);
@@ -136,6 +166,9 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label lbCanBeSimplified;
         private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.TextBox txtDNF;
+        private System.Windows.Forms.Button txtClearAll;
+        private System.Windows.Forms.TextBox txtHashCode;
     }
 }
 

@@ -47,7 +47,7 @@ namespace LPP
         //}
 
         //This function is to get the postfix notation of the string
-        public static string GetPostfix(string s)
+        public string GetPostfix(string s)
         {
             string toBeProcessed = s;
             var charToCut = new string[] { "(", ")", "," };
@@ -67,7 +67,7 @@ namespace LPP
 
 
         //Function to count the number of logical proposition
-        public static int CountLogicProposition(string s)
+        public int CountLogicProposition(string s)
         {
             ResetCounting();
             var allLogicalPropositions = new List<char>();
@@ -84,7 +84,7 @@ namespace LPP
         }
 
         //Get the string representing all the logical proposition in the formula
-        public static string GetLogicProposition(string s)
+        public string GetLogicProposition(string s)
         {
             string toBeProcessed = s;
             var charToCut = new string[] { "(", ")", ",", "&", "|", ">", "=", "~" };
@@ -96,7 +96,7 @@ namespace LPP
         }
 
         //Sort the string from GetLogicProposition in alphabetical order
-        public static string SortLogicProposition(string s)
+        public string SortLogicProposition(string s)
         {
             ResetSortedString();
             var sortArray = s.ToCharArray();
@@ -106,7 +106,7 @@ namespace LPP
         }
 
         //function to determine the number of row the truth table will have
-        public static List<string> SetupTruthTable(int num)
+        public List<string> SetupTruthTable(int num)
         {
             List<int> RowNumber = new List<int>();
             List<string> TruthValue = new List<string>();
@@ -123,7 +123,7 @@ namespace LPP
         }
 
         //Check Operator
-        public static bool CheckOperator(char c)
+        public bool CheckOperator(char c)
         {
             switch (c)
             {
@@ -136,7 +136,7 @@ namespace LPP
             return false;
         }
 
-        public static string CalculateBasedOnOperator(char op, string s1, string s2)
+        public string CalculateBasedOnOperator(char op, string s1, string s2)
         {
             switch (op)
             {
@@ -148,7 +148,7 @@ namespace LPP
             return "";
         }
 
-        public static List<string> LogicalEvaluation(List<string> TruthValue, string evaluation)
+        public List<string> LogicalEvaluation(List<string> TruthValue, string evaluation)
         {
             //List used for returning
             List<string> final = new List<string>();
@@ -209,15 +209,16 @@ namespace LPP
             }
             return final;
         }
-
-
+        //
+        //
+        //
         /////////////////////////////////////
         /////////////////////////////////////
         /////////////////////////////////////
         /////////////////////////////////////
         /////////////////////////////////////functions for generating simplified truth table
 
-        public static void Sort0and1(List<string> resultList, int noOfPropositions, out List<int> sortedList0, out List<int> sortedList1)
+        public void Sort0and1(List<string> resultList, int noOfPropositions, out List<int> sortedList0, out List<int> sortedList1)
         {
             sortedList0 = new List<int>();
             sortedList1 = new List<int>();
@@ -236,7 +237,7 @@ namespace LPP
         }
 
         //Form Simplified Truth Table for Tautology or Contradiction
-        public static string FormTOrC(int NoOfInput)
+        public string FormTOrC(int NoOfInput)
         {
             //String to be returned
             string toBeReturned = "";
@@ -253,7 +254,7 @@ namespace LPP
 
 
         //Take a list of integer and return a new list whose each object has one repetition value "⋆" 
-        public static List<string> findRepetitionBeginning(List<int> inputList, int NoOfInput)
+        public List<string> findRepetitionBeginning(List<int> inputList, int NoOfInput)
         {
             List<string> repetitionString = new List<string>();
             int currentIndex = 0;

@@ -14,6 +14,8 @@ namespace LPP
 {
     public partial class Form1 : Form
     {
+        TruthTable currentTruthTable;
+        LogicProposition currentProposition;
         public Form1()
         {
             InitializeComponent();
@@ -35,8 +37,16 @@ namespace LPP
             else
             {
                 Input toBeProcessed = new Input(txtInput.Text);
-                string s1 = LogicProposition.ProcessLogic(toBeProcessed);
-                txtOutput.Text = s1;
+                currentTruthTable = new TruthTable();
+
+                //set value for the property of the currentPosition object
+                currentProposition = new LogicProposition();
+                string s1 = currentProposition.ProcessLogic(toBeProcessed);
+                currentProposition.setLogicString(s1);
+
+                //output value from the object
+                txtOutput.Text = currentProposition.returnLogicString();
+                
             }
         }
 
@@ -62,7 +72,7 @@ namespace LPP
         // Function to generate the label for the truth table and remove repetition in logic proposition
         private string GenerateLabel()
         {
-            string labelDisplay = TruthTable.SortLogicProposition(TruthTable.GetLogicProposition(TruthTable.GetPostfix(txtInput.Text)));
+            string labelDisplay = currentTruthTable.SortLogicProposition(currentTruthTable.GetLogicProposition(currentTruthTable.GetPostfix(txtInput.Text)));
             char[] displayArrayDuplicate = labelDisplay.ToCharArray();
             var displayArrayNoDuplicate = new HashSet<char>(displayArrayDuplicate).ToArray();
             string finalDisplay = new string(displayArrayNoDuplicate);
@@ -101,7 +111,7 @@ namespace LPP
                 //Get the requisite value to generate a truth table
                 listBox1.Items.Clear();
                 listBox2.Items.Clear();
-                string countLogicPropositions = TruthTable.CountLogicProposition(txtInput.Text).ToString();
+                string countLogicPropositions = currentTruthTable.CountLogicProposition(txtInput.Text).ToString();
 
                 //Display the label for the truth tables and remove repetition in logic proposition
                 string finalDisplay = GenerateLabel();
@@ -110,8 +120,8 @@ namespace LPP
 
 
                 //Calculate value for the truth table
-                List<string> DisplayValue = TruthTable.SetupTruthTable(Convert.ToInt32(countLogicPropositions));
-                List<string> LogicResult = TruthTable.LogicalEvaluation(DisplayValue, txtInput.Text);
+                List<string> DisplayValue = currentTruthTable.SetupTruthTable(Convert.ToInt32(countLogicPropositions));
+                List<string> LogicResult = currentTruthTable.LogicalEvaluation(DisplayValue, txtInput.Text);
 
 
                 //Display values for the truth table
@@ -136,24 +146,24 @@ namespace LPP
                 List<int> sortedList1 = new List<int>();
 
                 //property needed for the function
-                int NoOfPropositions = TruthTable.CountLogicProposition(txtInput.Text);
+                int NoOfPropositions = currentTruthTable.CountLogicProposition(txtInput.Text);
 
                 //Display label for the simplified truth table with regex
                 listBox2.Items.Add(Regex.Replace(finalDisplay, "(?<=.)(?!$)", "   |   ") + "   |   ");
 
                 //sort 0 and 1 separately
-                TruthTable.Sort0and1(LogicResult, NoOfPropositions, out sortedList0, out sortedList1);
+                currentTruthTable.Sort0and1(LogicResult, NoOfPropositions, out sortedList0, out sortedList1);
 
                 //The first function will form the first simplified version of the results, then complete the simplified table with a recursion function 
                 //(I have problems with managing different inputs for the functions, so I ended up making two functions instead)
                 if(sortedList0.Count == 0)
                 {
                     //if it is a Tautology
-                    DisplayListTrue.Add(TruthTable.FormTOrC(NoOfPropositions));
+                    DisplayListTrue.Add(currentTruthTable.FormTOrC(NoOfPropositions));
                 }
                 else
                 {
-                    DisplayListFalse = TruthTable.findRepetitionBeginning(sortedList0, NoOfPropositions);
+                    DisplayListFalse = currentTruthTable.findRepetitionBeginning(sortedList0, NoOfPropositions);
                     DisplayListFalse = TruthTable.FindRepetitionEnding(DisplayListFalse);
                 }
 
@@ -169,11 +179,11 @@ namespace LPP
                 if (sortedList1.Count == 0)
                 {
                     //if it is a Contradiction
-                    DisplayListFalse.Add(TruthTable.FormTOrC(NoOfPropositions));
+                    DisplayListFalse.Add(currentTruthTable.FormTOrC(NoOfPropositions));
                 }
                 else
                 {
-                    DisplayListTrue = TruthTable.findRepetitionBeginning(sortedList1, NoOfPropositions);
+                    DisplayListTrue = currentTruthTable.findRepetitionBeginning(sortedList1, NoOfPropositions);
                     DisplayListTrue = TruthTable.FindRepetitionEnding(DisplayListTrue);
                 }
 
@@ -182,6 +192,19 @@ namespace LPP
                     string result1 = Regex.Replace(DisplayListTrue[i], "(?<=.)(?!$)", "   |   ");
                     listBox2.Items.Add(result1 + "   |   " + 1);
                 }
+
+                //test DNF Infix
+                DNF testDNF = new DNF();
+                List<string> testing = testDNF.GenerateListForDNF(LogicResult, DisplayValue);
+                string display = testDNF.processAllLine(testing, finalDisplay);
+                testDNF.setDNFString(display);
+                txtDNF.Text = testDNF.returnDNFString();
+
+                //print hashcode
+                int hashCode = testDNF.returnDNFString().GetHashCode();
+                txtHashCode.Text = hashCode.ToString();
+
+
 
                 //Clear list for the next function since this list is static
                 TruthTable.clearListnoLongerBeSimplified();
@@ -206,6 +229,16 @@ namespace LPP
                 //    DisplayListTrue.Add(DisplayValue[DisplayValue.Count - 1]);
                 //}
             }
+        }
+
+        private void TxtClearAll_Click(object sender, EventArgs e)
+        {
+            txtInput.Clear();
+            txtOutput.Clear();
+            txtDNF.Clear();
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
+            txtHashCode.Clear();
         }
     }
 }
