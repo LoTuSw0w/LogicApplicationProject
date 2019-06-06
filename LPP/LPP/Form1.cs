@@ -34,7 +34,8 @@ namespace LPP
             }
             else
             {
-                string s1 = LogicProposition.ProcessLogic(txtInput.Text);
+                Input toBeProcessed = new Input(txtInput.Text);
+                string s1 = LogicProposition.ProcessLogic(toBeProcessed);
                 txtOutput.Text = s1;
             }
         }

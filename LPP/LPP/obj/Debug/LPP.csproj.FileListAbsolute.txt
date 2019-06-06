@@ -8,3 +8,13 @@ C:\Users\Dung Luong\source\repos\LPP\LPP\obj\Debug\LPP.csproj.GenerateResource.c
 C:\Users\Dung Luong\source\repos\LPP\LPP\obj\Debug\LPP.csproj.CoreCompileInputs.cache
 C:\Users\Dung Luong\source\repos\LPP\LPP\obj\Debug\LPP.exe
 C:\Users\Dung Luong\source\repos\LPP\LPP\obj\Debug\LPP.pdb
+D:\LPP\LPP\obj\Debug\LPP.csprojAssemblyReference.cache
+D:\LPP\LPP\obj\Debug\LPP.Form1.resources
+D:\LPP\LPP\obj\Debug\LPP.Properties.Resources.resources
+D:\LPP\LPP\obj\Debug\LPP.csproj.GenerateResource.cache
+D:\LPP\LPP\obj\Debug\LPP.csproj.CoreCompileInputs.cache
+D:\LPP\LPP\obj\Debug\LPP.exe
+D:\LPP\LPP\obj\Debug\LPP.pdb
+D:\LPP\LPP\bin\Debug\LPP.exe.config
+D:\LPP\LPP\bin\Debug\LPP.exe
+D:\LPP\LPP\bin\Debug\LPP.pdb

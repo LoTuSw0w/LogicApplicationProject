@@ -8,15 +8,15 @@ namespace LPP
 {
     class LogicProposition
     {
-        public static int IndexOfCenterComma(string s, out string leftString, out string rightString)
+        public static int IndexOfCenterComma(string s, out Input ileftString, out Input irightString)
         {
             if (s.Contains(',') && s.Length >= 4)
             {
                 s = s.Remove(0, 2);
                 s = s.Remove(s.ToCharArray().Length - 1);
 
-                leftString = "";
-                rightString = "";
+                string leftString = "";
+                string rightString = "";
                 int leftBracketsCount = 0;
                 int rightBracketsCount = 0;
                 int currentIndex = 0;
@@ -41,16 +41,20 @@ namespace LPP
                         {
                             rightString += toCharArray[i];
                         }
+                        ileftString = new Input(leftString);
+                        irightString = new Input(rightString);
                         return currentIndex;
                     }
                     currentIndex++;
                 }
+                ileftString = new Input("");
+                irightString = new Input("");
                 return 0;
             }
             else
             {
-                leftString = "";
-                rightString = "";
+                ileftString = new Input("");
+                irightString = new Input("");
                 return 0;
             }
             
@@ -72,13 +76,14 @@ namespace LPP
         }
 
 
-        public static string ProcessLogic(string s)
+        public static string ProcessLogic(Input i)
         {
+            string s = i.getInputString();
             //cleaner code
 
             if (CheckOperator(s[0]))
             {
-                string left, right;
+                Input left, right;
                 switch (s[0])
                 {
                     case '&':
@@ -101,7 +106,8 @@ namespace LPP
                         IndexOfCenterComma(s, out left, out right);
                         s = s.Remove(0, 2);
                         s = s.Remove(s.ToCharArray().Length - 1);
-                        return $"¬({ProcessLogic(s)})";
+                        Input newInput = new Input(s);
+                        return $"¬({ProcessLogic(newInput)})";
                 }
             }
             else
