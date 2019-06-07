@@ -196,7 +196,7 @@ namespace LPP
                 //test DNF Infix
                 DNF testDNF = new DNF();
                 List<string> testing = testDNF.GenerateListForDNF(LogicResult, DisplayValue);
-                string display = testDNF.processAllLine(testing, finalDisplay);
+                string display = testDNF.processAllLines(testing, finalDisplay);
                 testDNF.setDNFString(display);
                 txtDNF.Text = testDNF.returnDNFString();
 

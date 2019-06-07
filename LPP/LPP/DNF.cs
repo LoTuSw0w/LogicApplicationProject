@@ -39,7 +39,15 @@ namespace LPP
             return toReturn;
         }
 
-        public string processAllLine(List<string> values, string label)
+        //These two functions down here were built on a same logic foundation, using a stack to hold the return value
+        //
+        //Each row that results in 1 in the truth table will be processed by 'ProcessEachLine', each time it runs, the result from this function will
+        //be stored in another Stack for the function 'ProcessAllLine'
+        //
+        //These two functions run the same way
+
+
+        public string processAllLines(List<string> values, string label)
         {
             string toReturn = "";
             Stack<string> processedLines = new Stack<string>();
@@ -47,35 +55,28 @@ namespace LPP
             {
                 processedLines.Push(processEachLine(values[i], label));
             }
+
             string s1 = "", s2 = "";
-            while (processedLines.Count != 0)
+
+            if (processedLines.Count == 1)
             {
                 s1 = processedLines.Pop();
-                s2 = "";
-                if (processedLines.Count != 0)
-                {
-                    s2 = processedLines.Pop();
-                }
-                if (s1 != "" && s2 != "" && processedLines.Count != 0)
-                {
-                    toReturn += $"|({s1},{s2}),";
-                }
-                else if(s1 != "" && s2 != "" && processedLines.Count == 0)
-                {
-                    toReturn += $"|({s1},{s2})";
-                }
-                else
-                {
-                    toReturn += s1;
-                }
+                return s1;
             }
-
-            if(values.Count == 1)
+            else
             {
+                do
+                {
+                    s1 = processedLines.Pop();
+                    s2 = processedLines.Pop();
+                    toReturn = $"|({s1},{s2})";
+                    processedLines.Push(toReturn);
+                }
+                while (processedLines.Count != 1);
+
+                toReturn = processedLines.Pop();
                 return toReturn;
             }
-            toReturn = $"|({toReturn})";
-            return toReturn;
         }
 
         public string processEachLine(string s, string label)
@@ -95,46 +96,17 @@ namespace LPP
                     holder.Push($"{label[i]}");
                 }
             }
-            string s1 = "";
-            string s2 = "";
-            while(holder.Count != 0)
+            string s1 = "", s2 = "";
+            do
             {
                 s1 = holder.Pop();
-                s2 = "";
-                if(holder.Count != 0)
-                {
-                    s2 = holder.Pop();
-                }
-                if(s1 != "" && s2 != "" && holder.Count != 0)
-                {
-                    toReturn += $"&({s1},{s2}),";
-                }
-                else if(s1 != "" && s2 != "" && holder.Count == 0)
-                {
-                    toReturn += $"&({s1},{s2})";
-                }
-                else
-                {
-                    toReturn = $"&({toReturn}{s1})";
-                }
+                s2 = holder.Pop();
+                toReturn = $"&({s1},{s2})";
+                holder.Push(toReturn);
             }
+            while (holder.Count != 1);
 
-            
-            var charArrayCount = toReturn.ToCharArray();
-            int counter = 0;
-            foreach(char c in charArrayCount)
-            {
-                if(c == ')')
-                {
-                    counter++;
-                }
-            }
-
-            if(counter != 1 && charArrayCount[charArrayCount.Length -1] != ')')
-            {
-                toReturn = $"&({toReturn})";
-            }
-
+            toReturn = holder.Pop();
             return toReturn;
         }
     }
