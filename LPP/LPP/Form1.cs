@@ -154,18 +154,9 @@ namespace LPP
                 //sort 0 and 1 separately
                 currentTruthTable.Sort0and1(LogicResult, NoOfPropositions, out sortedList0, out sortedList1);
 
-                //The first function will form the first simplified version of the results, then complete the simplified table with a recursion function 
-                //(I have problems with managing different inputs for the functions, so I ended up making two functions instead)
-                if(sortedList0.Count == 0)
-                {
-                    //if it is a Tautology
-                    DisplayListTrue.Add(currentTruthTable.FormTOrC(NoOfPropositions));
-                }
-                else
-                {
-                    DisplayListFalse = currentTruthTable.findRepetitionBeginning(sortedList0, NoOfPropositions);
-                    DisplayListFalse = TruthTable.FindRepetitionEnding(DisplayListFalse);
-                }
+                //simplify all 1
+                DisplayListFalse = currentTruthTable.findRepetitionBeginning(sortedList0, NoOfPropositions);
+                DisplayListFalse = TruthTable.FindRepetitionEnding(DisplayListFalse);
 
                 //Print each item in the list
                 for (int i = 0; i < DisplayListFalse.Count; i++)
@@ -176,16 +167,9 @@ namespace LPP
                 //Clear list for the next function since this list is static
                 TruthTable.clearListnoLongerBeSimplified();
 
-                if (sortedList1.Count == 0)
-                {
-                    //if it is a Contradiction
-                    DisplayListFalse.Add(currentTruthTable.FormTOrC(NoOfPropositions));
-                }
-                else
-                {
-                    DisplayListTrue = currentTruthTable.findRepetitionBeginning(sortedList1, NoOfPropositions);
-                    DisplayListTrue = TruthTable.FindRepetitionEnding(DisplayListTrue);
-                }
+                //simplify all 0
+                DisplayListTrue = currentTruthTable.findRepetitionBeginning(sortedList1, NoOfPropositions);
+                DisplayListTrue = TruthTable.FindRepetitionEnding(DisplayListTrue);
 
                 for (int i = 0; i < DisplayListTrue.Count; i++)
                 {
@@ -193,18 +177,24 @@ namespace LPP
                     listBox2.Items.Add(result1 + "   |   " + 1);
                 }
 
-                //Form DNF prefix from the full truth table
-                DNF testDNF = new DNF();
-                List<string> testing = testDNF.GenerateListForDNF(LogicResult, DisplayValue);
-                string display = testDNF.processAllLines(testing, finalDisplay);
-                testDNF.setDNFString(display);
-                txtDNF.Text = testDNF.returnDNFString();
+                if(sortedList1.Count != 0)
+                {
+                    //Form DNF prefix from the full truth table
+                    DNF testDNF = new DNF();
+                    List<string> testing = testDNF.GenerateListForDNF(LogicResult, DisplayValue);
+                    string display = testDNF.processAllLines(testing, finalDisplay);
+                    testDNF.setDNFString(display);
+                    txtDNF.Text = testDNF.returnDNFString();
 
-                //print hashcode
-                int hashCode = testDNF.returnDNFString().GetHashCode();
-                txtHashCode.Text = hashCode.ToString();
-
-
+                    //print hashcode
+                    int hashCode = testDNF.returnDNFString().GetHashCode();
+                    txtHashCode.Text = hashCode.ToString();
+                }
+                else
+                {
+                    txtDNF.Text = "No DNF since this proposition is a contradiction";
+                }
+                
 
                 //Clear list for the next function since this list is static
                 TruthTable.clearListnoLongerBeSimplified();
