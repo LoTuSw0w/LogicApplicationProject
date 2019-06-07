@@ -87,7 +87,7 @@ namespace LPP
         public string GetLogicProposition(string s)
         {
             string toBeProcessed = s;
-            var charToCut = new string[] { "(", ")", ",", "&", "|", ">", "=", "~" };
+            var charToCut = new string[] { "(", ")", ",", "&", "|", ">", "=", "~", "%" };
             foreach (var c in charToCut)
             {
                 toBeProcessed = toBeProcessed.Replace(c, string.Empty);
@@ -131,6 +131,7 @@ namespace LPP
                 case '|':
                 case '>':
                 case '=':
+                case '%':
                     return true;
             }
             return false;
@@ -144,6 +145,7 @@ namespace LPP
                 case '|': return CalculateLogic.IsOr(s1, s2);
                 case '>': return CalculateLogic.LeadTo(s2, s1);
                 case '=': return CalculateLogic.Equal(s1, s2);
+                case '%': return CalculateLogic.IsNAND(s1, s2);
             }
             return "";
         }
@@ -236,7 +238,7 @@ namespace LPP
             }
         }
 
-        //Form Simplified Truth Table for Tautology or Contradiction
+        //Form Simplified Truth Table for Tautology or Contradiction, to save resource and help boost performance
         public string FormTOrC(int NoOfInput)
         {
             //String to be returned
@@ -440,6 +442,19 @@ namespace LPP
     class CalculateLogic
     {
         //function to calculate logic
+        public static string IsNAND(string s1, string s2)
+        {
+            if(s1 == s2 && s1 == "1")
+            {
+                return "0";
+            }
+            else
+            {
+                return "1";
+            }
+
+        }
+
         public static string IsNegation(string s)
         {
             if (s == "0")

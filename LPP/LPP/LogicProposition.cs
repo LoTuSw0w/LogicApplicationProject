@@ -84,6 +84,7 @@ namespace LPP
                 case '>':
                 case '=':
                 case '~':
+                case '%':
                     return true;
             }
             return false;
@@ -100,6 +101,10 @@ namespace LPP
                 Input left, right;
                 switch (s[0])
                 {
+                    case '%':
+                        IndexOfCenterComma(s, out left, out right);
+                        NAND nand = new NAND(ProcessLogic(left), ProcessLogic(right));
+                        return nand.ReturnString();
                     case '&':
                         IndexOfCenterComma(s, out left, out right);
                         AndClass and = new AndClass(ProcessLogic(left), ProcessLogic(right));

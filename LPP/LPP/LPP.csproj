@@ -59,6 +59,7 @@
     <Compile Include="ImplicationClass.cs" />
     <Compile Include="Input.cs" />
     <Compile Include="LogicProposition.cs" />
+    <Compile Include="NAND.cs" />
     <Compile Include="OrClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

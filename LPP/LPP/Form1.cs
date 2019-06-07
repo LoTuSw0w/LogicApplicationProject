@@ -193,7 +193,7 @@ namespace LPP
                     listBox2.Items.Add(result1 + "   |   " + 1);
                 }
 
-                //test DNF Infix
+                //Form DNF prefix from the full truth table
                 DNF testDNF = new DNF();
                 List<string> testing = testDNF.GenerateListForDNF(LogicResult, DisplayValue);
                 string display = testDNF.processAllLines(testing, finalDisplay);
