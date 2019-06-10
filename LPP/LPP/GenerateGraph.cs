@@ -31,7 +31,7 @@ namespace LPP
 
             //Writing to a file
             sw.WriteLine("graph logic {");
-            sw.WriteLine("  node [ fontname = \"Arial\" ]");
+            sw.WriteLine("  node [ fontname = \"Arial\" shape=box ]");
             sw.WriteLine($"  node1 [label = \"{ToBeProcessed[0]}\"]");
 
             //Run the main string processing function

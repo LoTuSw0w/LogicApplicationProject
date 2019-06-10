@@ -40,7 +40,7 @@ namespace LPP
                 currentTruthTable = new TruthTable();
 
                 //set value for the property of the currentPosition object
-                currentProposition = new LogicProposition();
+                currentProposition = new LogicProposition(txtInput.Text);
                 string s1 = currentProposition.ProcessLogic(toBeProcessed);
                 currentProposition.setLogicString(s1);
 
@@ -229,6 +229,25 @@ namespace LPP
             listBox1.Items.Clear();
             listBox2.Items.Clear();
             txtHashCode.Clear();
+        }
+
+        private void BtnTableaux_Click(object sender, EventArgs e)
+        {
+            if (txtOutput.Text == "")
+            {
+                MessageBox.Show("Please generate the statement first!");
+            }
+            else
+            {
+                TruthTree drawObjectTruthTree = new TruthTree(currentProposition);
+                drawObjectTruthTree.DrawTruthTree();
+                Process dot = new Process();
+                dot.StartInfo.FileName = @"C:\Program Files (x86)\Graphviz2.38\bin\dot.exe";
+                dot.StartInfo.Arguments = "-Tpng -oTableaux.png Tableaux.dot";
+                dot.Start();
+                dot.WaitForExit();
+                Process.Start("Tableaux.png");
+            }
         }
     }
 }

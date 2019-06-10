@@ -39,6 +39,7 @@
             this.txtDNF = new System.Windows.Forms.TextBox();
             this.txtClearAll = new System.Windows.Forms.Button();
             this.txtHashCode = new System.Windows.Forms.TextBox();
+            this.btnTableaux = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtInput
@@ -133,11 +134,22 @@
             this.txtHashCode.Size = new System.Drawing.Size(428, 20);
             this.txtHashCode.TabIndex = 10;
             // 
+            // btnTableaux
+            // 
+            this.btnTableaux.Location = new System.Drawing.Point(372, 162);
+            this.btnTableaux.Name = "btnTableaux";
+            this.btnTableaux.Size = new System.Drawing.Size(75, 23);
+            this.btnTableaux.TabIndex = 11;
+            this.btnTableaux.Text = "Tableaux";
+            this.btnTableaux.UseVisualStyleBackColor = true;
+            this.btnTableaux.Click += new System.EventHandler(this.BtnTableaux_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(736, 450);
+            this.Controls.Add(this.btnTableaux);
             this.Controls.Add(this.txtHashCode);
             this.Controls.Add(this.txtClearAll);
             this.Controls.Add(this.txtDNF);
@@ -169,6 +181,7 @@
         private System.Windows.Forms.TextBox txtDNF;
         private System.Windows.Forms.Button txtClearAll;
         private System.Windows.Forms.TextBox txtHashCode;
+        private System.Windows.Forms.Button btnTableaux;
     }
 }
 

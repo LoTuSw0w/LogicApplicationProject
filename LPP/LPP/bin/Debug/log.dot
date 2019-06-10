@@ -1,10 +1,18 @@
 graph logic {
-  node [ fontname = "Arial" ]
-  node1 [label = ">"]
+  node [ fontname = "Arial" shape=box ]
+  node1 [label = "|"]
   node1 -- node2
   node1 -- node3
-  node1 [label = ">"]
-  node2 [label = "a"]
-  node3 [label = "b"]
+  node1 [label = "|"]
+  node2 -- node4
+  node2 -- node5
+  node2 [label = "&"]
+  node4 [label = "B"]
+  node5 [label = "C"]
+  node3 -- node6
+  node3 -- node7
+  node3 [label = "&"]
+  node6 [label = "A"]
+  node7 [label = "~B"]
 
 }

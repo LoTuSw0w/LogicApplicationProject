@@ -9,6 +9,17 @@ namespace LPP
     class LogicProposition
     {
         private string logicString;
+        private string rawString;
+
+        public LogicProposition(string raw)
+        {
+            rawString = raw;
+        }
+
+        public string returnRawString()
+        {
+            return rawString;
+        }
 
         public void setLogicString(string s)
         {
@@ -24,6 +35,7 @@ namespace LPP
         //Find the index of the center comma
         public int IndexOfCenterComma(string s, out Input ileftString, out Input irightString)
         {
+            //set the raw string to help with the truth tree generation
             if (s.Contains(',') && s.Length >= 4)
             {
                 s = s.Remove(0, 2);
@@ -71,8 +83,6 @@ namespace LPP
                 irightString = new Input("");
                 return 0;
             }
-            
-
         }
 
         public bool CheckOperator(char c)
@@ -133,53 +143,6 @@ namespace LPP
             {
                 return s[0].ToString();
             }
-
-            //not a very clean way to write this function
-
-            /*if (CheckOperator(s[0]))
-            {
-                if (s[0] == '&')
-                {
-                    string left, right;
-                    IndexOfCenterComma(s, out left, out right);
-                    AndClass and = new AndClass(ProcessLogic(left), ProcessLogic(right));
-                    return and.ReturnString();
-                }
-                else if (s[0] == '|')
-                {
-                    string left, right;
-                    IndexOfCenterComma(s, out left, out right);
-                    OrClass or = new OrClass(ProcessLogic(left), ProcessLogic(right));
-                    return or.ReturnString();
-                }
-                else if (s[0] == '>')
-                {
-                    string left, right;
-                    IndexOfCenterComma(s, out left, out right);
-                    ImplicationClass imply = new ImplicationClass(ProcessLogic(left), ProcessLogic(right));
-                    return imply.ReturnString();
-                }
-                else if (s[0] == '=')
-                {
-                    string left, right;
-                    IndexOfCenterComma(s, out left, out right);
-                    OrClass equal = new OrClass(ProcessLogic(left), ProcessLogic(right));
-                    return equal.ReturnString();
-                }
-                else
-                {
-                    string left, right;
-                    IndexOfCenterComma(s, out left, out right);
-                    NotClass not = new NotClass(s);
-                    return not.ReturnString();
-                }
-            }
-            else
-            {
-                return s[0].ToString();
-            }*/
         }
-
-
     }
 }
