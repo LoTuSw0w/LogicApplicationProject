@@ -160,7 +160,7 @@ namespace LogiX
             toReturnList = toReturnList.Distinct().ToList();
 
             //recursion to check if the table can still be simplified or not
-            if (toReturnList.Count < inputList.Count && toReturnList.Count != 0)
+            if (toReturnList.Count != 0)
             {
                 //removing dynamic sizing to increase performance when merging the two lists
                 var returningFinalList = new List<string>(noLongerBeSimplified.Count + toReturnList.Count);
@@ -183,7 +183,6 @@ namespace LogiX
                 //remove repetition
                 returningFinalList = returningFinalList.Distinct().ToList();
                 return returningFinalList;
-
             }
         }
     }

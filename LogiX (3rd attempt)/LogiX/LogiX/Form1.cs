@@ -65,10 +65,9 @@ namespace LogiX
 
             //simplified truth table
             List<string> simplifiedList = new List<string>();
-            foreach(char[] c in ValuesAllLines)
-            {
-                simplifiedList.Add(new String(c));
-            }
+            simplifiedList.Add("00");
+            simplifiedList.Add("01");
+            simplifiedList.Add("11");
             List<string> tobeDisplayed = truthTableObject.FindRepetitionEnding(simplifiedList);
             
             
