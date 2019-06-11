@@ -1,0 +1,10 @@
+D:\LogiX\LogiX\LogiX\bin\Debug\LogiX.exe.config
+D:\LogiX\LogiX\LogiX\bin\Debug\LogiX.exe
+D:\LogiX\LogiX\LogiX\bin\Debug\LogiX.pdb
+D:\LogiX\LogiX\LogiX\obj\Debug\LogiX.csprojAssemblyReference.cache
+D:\LogiX\LogiX\LogiX\obj\Debug\LogiX.Form1.resources
+D:\LogiX\LogiX\LogiX\obj\Debug\LogiX.Properties.Resources.resources
+D:\LogiX\LogiX\LogiX\obj\Debug\LogiX.csproj.GenerateResource.cache
+D:\LogiX\LogiX\LogiX\obj\Debug\LogiX.csproj.CoreCompileInputs.cache
+D:\LogiX\LogiX\LogiX\obj\Debug\LogiX.exe
+D:\LogiX\LogiX\LogiX\obj\Debug\LogiX.pdb
