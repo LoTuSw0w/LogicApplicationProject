@@ -128,7 +128,7 @@ namespace LogiX
                         break;
                     }
                     int diff = NoOfDifferentSymbol(inputList[currentIndex], inputList[j]);
-                    if (diff <= 1)
+                    if (diff == 1)
                     {
                         counter++;
                         string toBeAdded = "";
@@ -160,7 +160,7 @@ namespace LogiX
             toReturnList = toReturnList.Distinct().ToList();
 
             //recursion to check if the table can still be simplified or not
-            if (toReturnList.Count != 0)
+            if (toReturnList.Count != 0 && toReturnList != inputList)
             {
                 //removing dynamic sizing to increase performance when merging the two lists
                 var returningFinalList = new List<string>(noLongerBeSimplified.Count + toReturnList.Count);
@@ -183,6 +183,25 @@ namespace LogiX
                 //remove repetition
                 returningFinalList = returningFinalList.Distinct().ToList();
                 return returningFinalList;
+
+            }
+        }
+
+        public void OutList0And1(List<char[]> allvalues, List<int> allResults, out List<string> list0, out List<string> list1)
+        {
+            list0 = new List<string>();
+            list1 = new List<string>();
+
+            for(int i = 0; i < allResults.Count; i++)
+            {
+                if(allResults[i] == 1)
+                {
+                    list1.Add(new String(allvalues[i]));
+                }
+                else
+                {
+                    list0.Add(new String(allvalues[i]));
+                }
             }
         }
     }

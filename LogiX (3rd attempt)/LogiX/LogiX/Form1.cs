@@ -64,14 +64,19 @@ namespace LogiX
             }
 
             //simplified truth table
-            List<string> simplifiedList = new List<string>();
-            simplifiedList.Add("00");
-            simplifiedList.Add("01");
-            simplifiedList.Add("11");
-            List<string> tobeDisplayed = truthTableObject.FindRepetitionEnding(simplifiedList);
-            
-            
 
+            //Two lists that will hold all char[] that result in either 0 or 1
+            List<string> list0 = new List<string>();
+            List<string> list1 = new List<string>();
+
+            //assigning values to list0 and list1
+            truthTableObject.OutList0And1(ValuesAllLines, allResults, out list0, out list1);
+
+            //run the recursion function through the two lists
+            List<string> display0 = truthTableObject.FindRepetitionEnding(list0);
+            truthTableObject.clearListnoLongerBeSimplified();
+            List<string> display1 = truthTableObject.FindRepetitionEnding(list1);
+            truthTableObject.clearListnoLongerBeSimplified();
         }
 
         private void BtnGraph_Click(object sender, EventArgs e)
