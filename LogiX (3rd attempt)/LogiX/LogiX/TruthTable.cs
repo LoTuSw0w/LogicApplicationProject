@@ -183,7 +183,6 @@ namespace LogiX
                 //remove repetition
                 returningFinalList = returningFinalList.Distinct().ToList();
                 return returningFinalList;
-
             }
         }
 

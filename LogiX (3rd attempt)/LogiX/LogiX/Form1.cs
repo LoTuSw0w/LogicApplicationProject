@@ -26,21 +26,25 @@ namespace LogiX
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            richTextBox1.Clear();
+            truthTable.Clear();
+            SimplifiedTruthTable.Clear();
             processObject = new ProcessLogicClass(txtInput.Text);
             truthTableObject = new TruthTable(processObject);
             txtOutput.Text = processObject.GetInfix();
 
-            //setup the truth table
+
+            //setup the truth table as well as the simplified version
             foreach (char c in truthTableObject.returnLabel())
             {
                 if (c.Equals(truthTableObject.returnLabel()[truthTableObject.returnLabel().Length - 1]))
                 {
-                    richTextBox1.Text += c + "   |   " + "evaluation" + "\n";
+                    truthTable.Text += c + "   |   " + "evaluation" + "\n";
+                    SimplifiedTruthTable.Text += c + "   |   " + "evaluation" + "\n";
                 }
                 else
                 {
-                    richTextBox1.Text += c + "  ";
+                    truthTable.Text += c + "  ";
+                    SimplifiedTruthTable.Text += c + "  ";
                 }
             }
 
@@ -54,16 +58,17 @@ namespace LogiX
                 {
                     if (j == valueEachLine.Length - 1)
                     {
-                        richTextBox1.Text += valueEachLine[j] + "              " + resultLine + "\n";
+                        truthTable.Text += valueEachLine[j] + "              " + resultLine + "\n";
                     }
                     else
                     {
-                        richTextBox1.Text += valueEachLine[j] + "  ";
+                        truthTable.Text += valueEachLine[j] + "  ";
                     }
                 }
             }
 
-            //simplified truth table
+            //////////////////////////simplified truth table
+
 
             //Two lists that will hold all char[] that result in either 0 or 1
             List<string> list0 = new List<string>();
@@ -77,6 +82,53 @@ namespace LogiX
             truthTableObject.clearListnoLongerBeSimplified();
             List<string> display1 = truthTableObject.FindRepetitionEnding(list1);
             truthTableObject.clearListnoLongerBeSimplified();
+
+            //display the values of the two lists of strings. However, since I intend to use the same displaying method for the truth table,
+            //they will be converted to lists of char arrays
+
+            List<char[]> listZero = new List<char[]>();
+            List<char[]> listOne = new List<char[]>();
+
+            foreach(string s in display0)
+            {
+                listZero.Add(s.ToCharArray());
+            }
+            foreach (string s in display1)
+            {
+                listOne.Add(s.ToCharArray());
+            }
+
+            //Adding the two lists to the rich textbox
+            foreach(char[] c in listZero)
+            {
+                for(int i = 0; i < c.Length; i++)
+                {
+                    if (i == c.Length - 1)
+                    if (i == c.Length - 1)
+                        {
+                        SimplifiedTruthTable.Text += c[i] + "              " + "0" + "\n";
+                    }
+                    else
+                    {
+                        SimplifiedTruthTable.Text += c[i] + "  ";
+                    }
+                }
+            }
+
+            foreach (char[] c in listOne)
+            {
+                for (int i = 0; i < c.Length; i++)
+                {
+                    if (i == c.Length - 1)
+                    {
+                        SimplifiedTruthTable.Text += c[i] + "              " + "1" + "\n";
+                    }
+                    else
+                    {
+                        SimplifiedTruthTable.Text += c[i] + "  ";
+                    }
+                }
+            }
         }
 
         private void BtnGraph_Click(object sender, EventArgs e)
@@ -89,6 +141,15 @@ namespace LogiX
             dot.Start();
             dot.WaitForExit();
             Process.Start("log.png");
+        }
+
+
+        private void BtnClearAll_Click(object sender, EventArgs e)
+        {
+            txtInput.Clear();
+            txtOutput.Clear();
+            SimplifiedTruthTable.Clear();
+            truthTable.Clear();
         }
     }
 }
