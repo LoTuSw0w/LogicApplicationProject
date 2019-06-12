@@ -17,6 +17,7 @@ namespace LogiX
         ProcessLogicClass processObject;
         GenerateGraph graphCreator;
         TruthTable truthTableObject;
+        DNF DNFobject;
 
 
         public Form1()
@@ -26,10 +27,13 @@ namespace LogiX
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            truthTable.Clear();
-            SimplifiedTruthTable.Clear();
+            //clear all the inputs as well as outputs
+            BtnClearAll_Click(sender, e);
+
             processObject = new ProcessLogicClass(txtInput.Text);
             truthTableObject = new TruthTable(processObject);
+
+            //Convert from prefix to infix
             txtOutput.Text = processObject.GetInfix();
 
 
@@ -104,8 +108,7 @@ namespace LogiX
                 for(int i = 0; i < c.Length; i++)
                 {
                     if (i == c.Length - 1)
-                    if (i == c.Length - 1)
-                        {
+                    {
                         SimplifiedTruthTable.Text += c[i] + "              " + "0" + "\n";
                     }
                     else
@@ -129,6 +132,10 @@ namespace LogiX
                     }
                 }
             }
+
+            //Generate DNF for the full truth table
+            DNFobject = new DNF(allResults, ValuesAllLines, new String(truthTableObject.returnLabel()));
+            txtDNF.Text = DNFobject.returnDNFString();
         }
 
         private void BtnGraph_Click(object sender, EventArgs e)
@@ -146,10 +153,15 @@ namespace LogiX
 
         private void BtnClearAll_Click(object sender, EventArgs e)
         {
-            txtInput.Clear();
             txtOutput.Clear();
             SimplifiedTruthTable.Clear();
             truthTable.Clear();
+            txtDNF.Clear();
+        }
+
+        private void BtnDNFfull_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -35,11 +35,12 @@
             this.truthTable = new System.Windows.Forms.RichTextBox();
             this.SimplifiedTruthTable = new System.Windows.Forms.RichTextBox();
             this.btnClearAll = new System.Windows.Forms.Button();
+            this.txtDNF = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnConvert
             // 
-            this.btnConvert.Location = new System.Drawing.Point(97, 85);
+            this.btnConvert.Location = new System.Drawing.Point(49, 85);
             this.btnConvert.Name = "btnConvert";
             this.btnConvert.Size = new System.Drawing.Size(75, 23);
             this.btnConvert.TabIndex = 0;
@@ -56,14 +57,14 @@
             // 
             // txtOutput
             // 
-            this.txtOutput.Location = new System.Drawing.Point(45, 140);
+            this.txtOutput.Location = new System.Drawing.Point(45, 114);
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.Size = new System.Drawing.Size(343, 20);
             this.txtOutput.TabIndex = 2;
             // 
             // btnGraph
             // 
-            this.btnGraph.Location = new System.Drawing.Point(178, 85);
+            this.btnGraph.Location = new System.Drawing.Point(130, 85);
             this.btnGraph.Name = "btnGraph";
             this.btnGraph.Size = new System.Drawing.Size(75, 23);
             this.btnGraph.TabIndex = 3;
@@ -89,7 +90,7 @@
             // 
             // btnClearAll
             // 
-            this.btnClearAll.Location = new System.Drawing.Point(259, 85);
+            this.btnClearAll.Location = new System.Drawing.Point(211, 85);
             this.btnClearAll.Name = "btnClearAll";
             this.btnClearAll.Size = new System.Drawing.Size(75, 23);
             this.btnClearAll.TabIndex = 6;
@@ -97,11 +98,19 @@
             this.btnClearAll.UseVisualStyleBackColor = true;
             this.btnClearAll.Click += new System.EventHandler(this.BtnClearAll_Click);
             // 
+            // txtDNF
+            // 
+            this.txtDNF.Location = new System.Drawing.Point(45, 140);
+            this.txtDNF.Name = "txtDNF";
+            this.txtDNF.Size = new System.Drawing.Size(343, 20);
+            this.txtDNF.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtDNF);
             this.Controls.Add(this.btnClearAll);
             this.Controls.Add(this.SimplifiedTruthTable);
             this.Controls.Add(this.truthTable);
@@ -125,6 +134,7 @@
         private System.Windows.Forms.RichTextBox truthTable;
         private System.Windows.Forms.RichTextBox SimplifiedTruthTable;
         private System.Windows.Forms.Button btnClearAll;
+        private System.Windows.Forms.TextBox txtDNF;
     }
 }
 

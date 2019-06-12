@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DNF.cs" />
     <Compile Include="GenerateGraph.cs" />
     <Compile Include="LogicPropositionClass\AndClass.cs" />
     <Compile Include="LogicPropositionClass\BiImplicationClass.cs" />
