@@ -1,0 +1,13 @@
+graph logic {
+  node [ fontname = "Arial" shape=box ]
+
+node1 -- node2
+node1 [label = "¬((a ^ b) ∥ b), "]
+node2 -- node4
+node2 -- node5
+node2 [label = "¬(a ^ b), ¬b, "]
+node4 -- node8
+node4 [label = "¬a, "]
+node5 -- node10
+node5 [label = "¬b, "]
+}
