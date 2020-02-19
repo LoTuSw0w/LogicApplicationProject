@@ -1,2 +1,0 @@
-# LogicApplicationProject
-My logic application!
