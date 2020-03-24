@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogiX
 {
-    class Nandify : IProposition
+    public class Nandify : IProposition
     {
         private IProposition left;
         private IProposition right;

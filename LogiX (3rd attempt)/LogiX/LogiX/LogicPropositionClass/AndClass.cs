@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogiX
 {
-    class AndClass : IProposition
+    public class AndClass : IProposition
     {
         private IProposition left;
         private IProposition right;

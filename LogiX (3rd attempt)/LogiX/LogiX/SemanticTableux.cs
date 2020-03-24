@@ -7,14 +7,14 @@ using System.IO;
 
 namespace LogiX
 {
-    enum Rule
+    public enum Rule
     {
         Alpha,
         Beta,
         None
     }
 
-    class SemanticTableux
+    public class SemanticTableux
     {
         private Rule ruleOfNode;
         private bool isClosedNode;

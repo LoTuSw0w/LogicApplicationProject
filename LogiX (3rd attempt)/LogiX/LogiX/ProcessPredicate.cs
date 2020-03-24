@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogiX
 {
-    class ProcessPredicate
+    public class ProcessPredicate
     {
         IQuantifier proposition;
         private string rawString;

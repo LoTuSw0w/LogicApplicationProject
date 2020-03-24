@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogiX
 {
-    class BiImplicationClass : IProposition
+    public class BiImplicationClass : IProposition
     {
         private IProposition left;
         private IProposition right;

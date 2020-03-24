@@ -7,7 +7,7 @@ using System.IO;
 
 namespace LogiX
 {
-    class GenerateGraph
+    public class GenerateGraph
     {
         private ProcessLogicClass logicProposition;
 

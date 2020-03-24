@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogiX
 {
-    class NotClass : IProposition
+    public class NotClass : IProposition
     {
         private IProposition proposition;
         public NotClass(IProposition _proposition)

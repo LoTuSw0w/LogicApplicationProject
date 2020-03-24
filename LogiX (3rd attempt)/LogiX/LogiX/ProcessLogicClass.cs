@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogiX
 {
-    class ProcessLogicClass
+    public class ProcessLogicClass
     {
         IProposition proposition;
         private string rawString;
@@ -21,7 +21,7 @@ namespace LogiX
         }
 
         //main recursive function used to process the string
-        private IProposition ProcessString(string input)
+        public IProposition ProcessString(string input)
         {
             string left, right;
             switch (input[0])

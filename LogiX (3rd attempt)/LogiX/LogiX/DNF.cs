@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogiX
 {
-    class DNF
+    public class DNF
     {
         private string dnfString;
         public string returnDNFString()

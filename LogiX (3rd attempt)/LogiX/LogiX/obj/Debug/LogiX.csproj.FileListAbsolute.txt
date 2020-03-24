@@ -8,3 +8,13 @@ D:\LogiX\LogiX\LogiX\obj\Debug\LogiX.csproj.GenerateResource.cache
 D:\LogiX\LogiX\LogiX\obj\Debug\LogiX.csproj.CoreCompileInputs.cache
 D:\LogiX\LogiX\LogiX\obj\Debug\LogiX.exe
 D:\LogiX\LogiX\LogiX\obj\Debug\LogiX.pdb
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiX\bin\Debug\LogiX.exe.config
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiX\bin\Debug\LogiX.exe
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiX\bin\Debug\LogiX.pdb
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiX\obj\Debug\LogiX.csprojAssemblyReference.cache
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiX\obj\Debug\LogiX.Form1.resources
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiX\obj\Debug\LogiX.Properties.Resources.resources
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiX\obj\Debug\LogiX.csproj.GenerateResource.cache
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiX\obj\Debug\LogiX.csproj.CoreCompileInputs.cache
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiX\obj\Debug\LogiX.exe
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiX\obj\Debug\LogiX.pdb

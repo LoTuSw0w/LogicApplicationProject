@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogiX
 {
-    class TruthTable
+    public class TruthTable
     {
         private char[] label;
         private List<char[]> ValuesEachLine;
@@ -106,10 +106,10 @@ namespace LogiX
             List<char[]> listZero = new List<char[]>();
             List<char[]> listOne = new List<char[]>();
 
-            foreach (string s in display0)
-            {
-                listZero.Add(s.ToCharArray());
-            }
+            //foreach (string s in display0)
+            //{
+            //    listZero.Add(s.ToCharArray());
+            //}
             foreach (string s in display1)
             {
                 listOne.Add(s.ToCharArray());

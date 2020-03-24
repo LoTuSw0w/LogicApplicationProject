@@ -1,0 +1,17 @@
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiXTest\obj\Debug\LogiXTest.csprojAssemblyReference.cache
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiXTest\obj\Debug\LogiXTest.csproj.CoreCompileInputs.cache
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiXTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiXTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiXTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiXTest\bin\Debug\LogiXTest.dll
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiXTest\bin\Debug\LogiXTest.pdb
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiXTest\bin\Debug\LogiX.exe
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiXTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiXTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiXTest\bin\Debug\LogiX.pdb
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiXTest\bin\Debug\LogiX.exe.config
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiXTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiXTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiXTest\obj\Debug\LogiXTest.csproj.CopyComplete
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiXTest\obj\Debug\LogiXTest.dll
+D:\gitKraken\LogicApplicationProject\LogiX (3rd attempt)\LogiX\LogiXTest\obj\Debug\LogiXTest.pdb
