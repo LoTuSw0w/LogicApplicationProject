@@ -59,6 +59,7 @@
     <Compile Include="NandifyTest.cs" />
     <Compile Include="OrClassTest.cs" />
     <Compile Include="TruthTableTest.cs" />
+    <Compile Include="DNFTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

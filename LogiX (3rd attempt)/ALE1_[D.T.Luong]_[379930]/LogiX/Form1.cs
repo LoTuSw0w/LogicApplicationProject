@@ -39,9 +39,13 @@ namespace LogiX
 
             //setup the truth table as well as the simplified version
             //full truth table
-            truthTable.Text = truthTableObject.setUpLabel() + truthTableObject.printTable();
+            string SetUplable = truthTableObject.setUpLabel();
+            string printTable = truthTableObject.printTable();
+            string List0and1 = truthTableObject.getList0and1();
+
+            truthTable.Text = SetUplable + printTable;
             //////////////////////////simplified truth table
-            SimplifiedTruthTable.Text = truthTableObject.setUpLabel() + truthTableObject.getList0and1();
+            SimplifiedTruthTable.Text = SetUplable + List0and1;
 
             //Generate DNF for the full truth table
             List<char[]> ValuesAllLines = truthTableObject.returnValuesEachLine();

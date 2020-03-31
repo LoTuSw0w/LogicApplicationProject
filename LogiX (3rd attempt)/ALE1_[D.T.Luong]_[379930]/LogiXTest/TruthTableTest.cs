@@ -20,6 +20,17 @@ namespace LogiXTest
         }
 
         [TestMethod]
+        public void setUpLabel_isLabelValid()
+        {
+            //Arrange and Act
+            var processObject = new ProcessLogicClass(">(a,b)");
+            var truthTableObject = new TruthTable(processObject);
+
+            //Assert
+            Assert.AreEqual(truthTableObject.setUpLabel(), "a  b   |   evaluation\n");
+        }
+        
+        [TestMethod]
         public void printTable_is_not_null()
         {
             //Arrange
@@ -33,6 +44,19 @@ namespace LogiXTest
             Assert.IsNotNull(tableString);
         }
 
+        [TestMethod]
+        public void printTable_IsItValid()
+        {
+            //Arrange
+            var processObject = new ProcessLogicClass(">(a,b)");
+            var truthTableObject = new TruthTable(processObject);
+
+            //Act
+            var tableString = truthTableObject.printTable();
+
+            //Assert
+            Assert.AreEqual(tableString, "0  0              1\n0  1              1\n1  0              0\n1  1              1\n");
+        }
 
         [TestMethod]
         public void returnHexHashCode_is_not_null()
@@ -50,6 +74,21 @@ namespace LogiXTest
         }
 
         [TestMethod]
+        public void returnHexHashCode_isItValid()
+        {
+            //Arrange
+            var processObject = new ProcessLogicClass(">(a,b)");
+            var truthTableObject = new TruthTable(processObject);
+
+            //Act
+            var tableString = truthTableObject.printTable();
+            var hashCode = truthTableObject.returnHexHashCode();
+
+            //Assert
+            Assert.AreEqual(hashCode, "B");
+        }
+
+        [TestMethod]
         public void getList0and1_is_not_null()
         {
             //Arrange
@@ -61,6 +100,20 @@ namespace LogiXTest
 
             //Assert
             Assert.IsNotNull(simplifiedtableString);
+        }
+
+        [TestMethod]
+        public void getList0and1_is_it_valid()
+        {
+            //Arrange
+            var processObject = new ProcessLogicClass(">(a,b)");
+            var truthTableObject = new TruthTable(processObject);
+
+            //Act
+            var simplifiedtableString = truthTableObject.getList0and1();
+
+            //Assert
+            Assert.AreEqual(simplifiedtableString, "0  ⋆              1\n⋆  1              1\n");
         }
 
         [TestMethod]
