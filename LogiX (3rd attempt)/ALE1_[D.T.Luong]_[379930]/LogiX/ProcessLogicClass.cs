@@ -50,6 +50,29 @@ namespace LogiX
             }
         }
 
+        public string GetNANDString(string input)
+        {
+            string left, right;
+            switch (input[0])
+            {
+                case '|':
+                    getLeftAndRight(input, out left, out right);
+                    
+                    return $"%(~({GetNANDString(left)}),~({GetNANDString(right)}))";
+                case '&':
+                    getLeftAndRight(input, out left, out right);
+                    string newInput = $"%({GetNANDString(left)},{GetNANDString(right)})";
+                    return $"~({newInput})";
+                case '~':
+                    input = input.Remove(0, 2);
+                    input = input.Remove(input.ToCharArray().Length - 1);
+                    return $"~({GetNANDString(input)})";
+                default:
+                    return input;
+            }
+        }
+
+        
         public void getLeftAndRight(string input, out string left, out string right)
         {
             input = input.Remove(0, 2);

@@ -53,6 +53,16 @@ namespace LogiX
             DNFobject = new DNF(allResults, ValuesAllLines, new String(truthTableObject.returnLabel()));
             txtDNF.Text = DNFobject.returnDNFString();
 
+            //generate NAND String 
+            if(txtDNF.Text == "Cannot generate a DNF with a contradiction!")
+            {
+                txtNAND.Text = "Cannot generate a NAND with a contradiction";
+            }
+            else
+            {
+                txtNAND.Text = processObject.GetNANDString(txtDNF.Text);
+            }
+
             string hash = truthTableObject.returnHexHashCode();
             txtHashtruthTable.Text = hash;
         }
@@ -78,6 +88,7 @@ namespace LogiX
             txtDNF.Clear();
             txtHashtruthTable.Clear();
             txtOutputPredicate.Clear();
+            txtNAND.Clear();
         }
 
         private void BtnDNFfull_Click(object sender, EventArgs e)

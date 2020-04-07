@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using LogiX;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -128,6 +130,23 @@ namespace LogiXTest
             //Assert
             Assert.AreEqual(left, "a");
             Assert.AreEqual(right, "b");
+        }
+
+        [TestMethod]
+        public void GetNANDString_test_output_is_it_valid()
+        {
+            //Arrange
+            ProcessLogicClass processObject = new ProcessLogicClass(">(a,b)");
+            TruthTable truthTableObject = new TruthTable(processObject);
+            List<char[]> ValuesAllLines = truthTableObject.returnValuesEachLine();
+            List<int> allResults = truthTableObject.returnLogicResult();
+            DNF DNFobject = new DNF(allResults, ValuesAllLines, new String(truthTableObject.returnLabel()));
+
+            //Act
+            string result = processObject.GetNANDString(DNFobject.returnDNFString());
+
+            //Assert
+            Assert.AreEqual(result,"%(~(%(~(~(%(~(a),~(b)))),~(~(%(~(a),b))))),~(~(%(a,b))))");
         }
     }
 }

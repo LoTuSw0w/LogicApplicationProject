@@ -20,6 +20,7 @@ namespace LogiX
             return $"({left.GetString()} ∥ {right.GetString()})";
         }
 
+        
         public List<IProposition> getChildProposition()
         {
             List<IProposition> toReturn = new List<IProposition>();
