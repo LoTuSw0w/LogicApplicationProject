@@ -1,9 +1,0 @@
-graph logic {
-node1 [label = "(a → b)"]
-node [ fontname = "Arial" ]
-node1 -- node2
-node1 -- node3
-node1 [label = "(a → b)"]
-
-
-}
